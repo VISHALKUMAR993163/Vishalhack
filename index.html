@@ -273,7 +273,7 @@
             font-size: 14px;
         }
         
-        input {
+        input, select {
             width: 100%;
             padding: 14px 15px 14px 45px;
             background: rgba(0, 0, 0, 0.5);
@@ -283,7 +283,7 @@
             font-size: 14px;
         }
         
-        input:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: #00ff00;
             box-shadow: 0 0 10px rgba(0,255,0,0.2);
@@ -446,7 +446,7 @@
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             border-radius: 20px;
             padding: 20px;
-            max-width: 450px;
+            max-width: 500px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
@@ -481,6 +481,17 @@
             margin-left: 5px;
         }
         
+        .refresh-btn {
+            background: #2196F3;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+        
         @media (max-width: 480px) {
             .glow-text { font-size: 20px; }
             .tab-btn { font-size: 10px; padding: 10px 4px; }
@@ -491,7 +502,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- User Profile Section -->
         <div class="user-profile" id="userProfile">
             <div class="user-info">
                 <div class="user-avatar">
@@ -514,7 +524,7 @@
         
         <div class="top-bar">
             <button class="admin-top-btn" onclick="openAdminLogin()">
-                <i class="fas fa-user-shield"></i> ADMIN PANEL <span id="pendingBadge" style="display:none;" class="notification-badge">0</span>
+                <i class="fas fa-user-shield"></i> ADMIN PANEL <span id="pendingBadge" class="notification-badge" style="display:none;">0</span>
             </button>
         </div>
         
@@ -711,6 +721,8 @@
                 <button class="amount-btn" onclick="setAmount(20)">₹20 = 20</button>
                 <button class="amount-btn" onclick="setAmount(50)">₹50 = 50</button>
                 <button class="amount-btn" onclick="setAmount(100)">₹100 = 100</button>
+                <button class="amount-btn" onclick="setAmount(200)">₹200 = 200</button>
+                <button class="amount-btn" onclick="setAmount(500)">₹500 = 500</button>
             </div>
             <div class="qr-code">
                 <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9931630411@ptyes&pn=Vishal%20Hacker&am=10&cu=INR" alt="QR Code">
@@ -752,44 +764,65 @@
     </div>
     
     <script>
-        // ADMIN CREDENTIALS - CHANGE THIS PASSWORD
+        // ========== ADMIN CREDENTIALS ==========
         const ADMIN_PASSWORD = "Vishalhack9933";
         
-        // User data storage keys
-        function getUserCreditsKey(email) {
-            return `vishalCredits_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+        // ========== GLOBAL STORAGE KEY (SAME FOR EVERYONE) ==========
+        // Sabhi requests ek hi jagah store hongi - "ALL_REQUESTS"
+        const ALL_REQUESTS_KEY = "VISHAL_ALL_PENDING_REQUESTS";
+        const ALL_USERS_CREDITS_KEY = "VISHAL_ALL_USERS_CREDITS";
+        
+        // ========== FUNCTIONS ==========
+        
+        // Get all pending requests (global)
+        function getAllPendingRequests() {
+            const requests = localStorage.getItem(ALL_REQUESTS_KEY);
+            return requests ? JSON.parse(requests) : [];
         }
         
-        function getUserSearchesKey(email) {
-            return `vishalSearches_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+        // Save all pending requests (global)
+        function saveAllPendingRequests(requests) {
+            localStorage.setItem(ALL_REQUESTS_KEY, JSON.stringify(requests));
+            updateAdminBadge();
+        }
+        
+        // Get user credits from global storage
+        function getUserCredits(email) {
+            const allCredits = localStorage.getItem(ALL_USERS_CREDITS_KEY);
+            const creditsMap = allCredits ? JSON.parse(allCredits) : {};
+            return creditsMap[email] || 0;
+        }
+        
+        // Save user credits to global storage
+        function saveUserCredits(email, credits) {
+            const allCredits = localStorage.getItem(ALL_USERS_CREDITS_KEY);
+            const creditsMap = allCredits ? JSON.parse(allCredits) : {};
+            creditsMap[email] = credits;
+            localStorage.setItem(ALL_USERS_CREDITS_KEY, JSON.stringify(creditsMap));
+        }
+        
+        // Get user searches
+        function getUserSearches(email) {
+            const key = `vishalSearches_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+            const searches = localStorage.getItem(key);
+            return searches ? parseInt(searches) : 0;
+        }
+        
+        function saveUserSearches(email, searches) {
+            const key = `vishalSearches_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+            localStorage.setItem(key, searches);
         }
         
         // Global variables
         let currentUser = null;
         let credits = 0;
         let totalSearches = 0;
-        let pendingRequests = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
         
-        // Load user data
-        function loadUserData(email) {
-            if (!email) return { credits: 0, searches: 0 };
-            const credits = localStorage.getItem(getUserCreditsKey(email));
-            const searches = localStorage.getItem(getUserSearchesKey(email));
-            return {
-                credits: credits ? parseInt(credits) : 0,
-                searches: searches ? parseInt(searches) : 0
-            };
-        }
-        
-        function saveUserCredits(email, credits) {
-            if (email) {
-                localStorage.setItem(getUserCreditsKey(email), credits);
-            }
-        }
-        
-        function saveUserSearches(email, searches) {
-            if (email) {
-                localStorage.setItem(getUserSearchesKey(email), searches);
+        function loadCurrentUserData() {
+            if (currentUser) {
+                credits = getUserCredits(currentUser.email);
+                totalSearches = getUserSearches(currentUser.email);
+                updateCreditUI();
             }
         }
         
@@ -814,22 +847,25 @@
                 saveUserSearches(currentUser.email, totalSearches);
                 updateCreditUI();
                 return true;
-            } else if (credits > 0 && !currentUser) {
+            } else if (credits <= 0 && currentUser) {
+                Swal.fire('No Credits!', 'Please buy credits to continue', 'warning').then(() => openPaymentModal());
+                return false;
+            } else if (!currentUser) {
                 Swal.fire('Please Login', 'You need to login first', 'warning').then(() => showLoginModal());
                 return false;
             }
             return false;
         }
         
-        function addCredits(amount) {
-            const creditsToAdd = parseInt(amount);
-            if (currentUser) {
-                credits += creditsToAdd;
-                saveUserCredits(currentUser.email, credits);
+        function addCreditsToUser(email, amount) {
+            const currentCredits = getUserCredits(email);
+            const newCredits = currentCredits + amount;
+            saveUserCredits(email, newCredits);
+            
+            if (currentUser && currentUser.email === email) {
+                credits = newCredits;
                 updateCreditUI();
-                return creditsToAdd;
             }
-            return 0;
         }
         
         // Login functions
@@ -865,12 +901,7 @@
             document.getElementById('loginBtn').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'block';
             
-            // Load user data
-            const userData = loadUserData(currentUser.email);
-            credits = userData.credits;
-            totalSearches = userData.searches;
-            updateCreditUI();
-            
+            loadCurrentUserData();
             closeLoginModal();
             Swal.fire('Welcome!', `Logged in as ${currentUser.email}`, 'success');
         }
@@ -917,6 +948,14 @@
                 return;
             }
             
+            // Check if transaction ID already used
+            const allRequests = getAllPendingRequests();
+            const existing = allRequests.find(r => r.transactionId === transactionId);
+            if (existing) {
+                Swal.fire('Error', 'This Transaction ID already exists!', 'error');
+                return;
+            }
+            
             const request = { 
                 transactionId, 
                 amount, 
@@ -927,24 +966,23 @@
                 status: 'pending' 
             };
             
-            pendingRequests.push(request);
-            localStorage.setItem('pendingRequests', JSON.stringify(pendingRequests));
+            allRequests.push(request);
+            saveAllPendingRequests(allRequests);
             
-            // Update badge if admin is logged in
-            updateAdminBadge();
+            // Generate WhatsApp message
+            const whatsappMsg = `Hi Admin!%0A%0A💰 NEW PAYMENT REQUEST%0A📝 Transaction ID: ${transactionId}%0A💵 Amount: ₹${amount}%0A👤 User: ${currentUser.email}%0A⭐ Credits: ${amount}%0A%0APlease approve my credits.`;
             
-            // Show success with admin contact
             Swal.fire({
                 title: '✅ Request Submitted!',
                 html: `<strong>💰 Amount:</strong> ₹${amount}<br>
                        <strong>⭐ Credits:</strong> ${amount}<br>
                        <strong>🆔 Transaction ID:</strong> ${transactionId}<br>
                        <strong>👤 User:</strong> ${currentUser.email}<br><br>
-                       <strong>📱 NOW CONTACT ADMIN FOR APPROVAL:</strong><br>
-                       <a href="https://wa.me/918207416237?text=My%20Transaction%20ID%20is%20${transactionId}%20for%20₹${amount}%20User:%20${currentUser.email}" target="_blank" style="background:#25D366; display:inline-block; padding:8px 15px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
+                       <strong>📱 CLICK BELOW TO CONTACT ADMIN:</strong><br><br>
+                       <a href="https://wa.me/918207416237?text=${whatsappMsg}" target="_blank" style="background:#25D366; display:inline-block; padding:10px 20px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
                            <i class="fab fa-whatsapp"></i> WhatsApp Admin
                        </a><br>
-                       <a href="https://t.me/Vishal_hack_99" target="_blank" style="background:#0088cc; display:inline-block; padding:8px 15px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
+                       <a href="https://t.me/Vishal_hack_99" target="_blank" style="background:#0088cc; display:inline-block; padding:10px 20px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
                            <i class="fab fa-telegram"></i> Telegram Admin
                        </a>`,
                 icon: 'success',
@@ -956,7 +994,7 @@
         }
         
         function updateAdminBadge() {
-            const pendingCount = pendingRequests.length;
+            const pendingCount = getAllPendingRequests().length;
             const badge = document.getElementById('pendingBadge');
             if (pendingCount > 0) {
                 badge.style.display = 'inline-block';
@@ -966,7 +1004,7 @@
             }
         }
         
-        // ADMIN FUNCTIONS - Only you can approve
+        // ADMIN FUNCTIONS
         function openAdminLogin() {
             Swal.fire({
                 title: '🔐 ADMIN LOGIN',
@@ -984,25 +1022,30 @@
         }
         
         function showAdminPanel() {
-            let pending = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
+            let pending = getAllPendingRequests();
             
             if (pending.length === 0) {
                 Swal.fire('No Pending Requests', 'All payment requests have been processed', 'info');
                 return;
             }
             
-            let html = '<div class="admin-panel-container"><h2 style="color:#00ff00;text-align:center;">🔐 PENDING REQUESTS</h2><p style="text-align:center;font-size:12px;margin-bottom:10px;">Total: ' + pending.length + ' requests</p>';
+            let html = `<div class="admin-panel-container">
+                <h2 style="color:#00ff00;text-align:center;">🔐 PENDING REQUESTS</h2>
+                <p style="text-align:center;font-size:12px;margin-bottom:10px;">
+                    Total: ${pending.length} requests | 
+                    <button class="refresh-btn" onclick="location.reload()">🔄 Refresh</button>
+                </p>`;
             
             pending.forEach((req, i) => {
-                html += `<div class="request-item">
+                const date = new Date(req.timestamp);
+                html += `<div class="request-item" id="req_${i}">
                     <small>#${i+1}</small><br>
-                    <strong style="color:#00ff00;">Transaction ID:</strong> ${req.transactionId}<br>
+                    <strong style="color:#00ff00;">🔖 TXN ID:</strong> ${req.transactionId}<br>
                     <strong>💰 Amount:</strong> ₹${req.amount}<br>
                     <strong>⭐ Credits:</strong> ${req.credits}<br>
-                    <strong>👤 User Email:</strong> ${req.userEmail || 'N/A'}<br>
-                    <strong>👤 User Name:</strong> ${req.userName || 'N/A'}<br>
-                    <strong>🕐 Time:</strong> ${new Date(req.timestamp).toLocaleString()}<br>
-                    <button class="approve-btn" onclick="approvePayment('${req.transactionId}', ${req.amount}, '${req.userEmail}')">✅ APPROVE & ADD ${req.credits} CREDITS</button>
+                    <strong>👤 User:</strong> ${req.userEmail}<br>
+                    <strong>🕐 Time:</strong> ${date.toLocaleString()}<br>
+                    <button class="approve-btn" onclick="approvePayment('${req.transactionId}', ${req.amount}, '${req.userEmail}')">✅ APPROVE & ADD CREDITS</button>
                     <button class="approve-btn" onclick="rejectPayment('${req.transactionId}')" style="background:#ff4444; color:white;">❌ REJECT</button>
                 </div>`;
             });
@@ -1014,34 +1057,31 @@
                 html: html,
                 showConfirmButton: false,
                 showCloseButton: true,
-                width: '480px'
+                width: '500px'
             });
         }
         
         function approvePayment(transactionId, amount, userEmail) {
-            // Add credits to specific user
-            const userCreditsKey = getUserCreditsKey(userEmail);
-            let userCredits = localStorage.getItem(userCreditsKey) ? parseInt(localStorage.getItem(userCreditsKey)) : 0;
-            userCredits += amount;
-            localStorage.setItem(userCreditsKey, userCredits);
-            
-            // Remove from pending requests
-            let pending = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
-            pending = pending.filter(req => req.transactionId !== transactionId);
-            localStorage.setItem('pendingRequests', JSON.stringify(pending));
-            
-            // Update global pending requests
-            pendingRequests = pending;
-            updateAdminBadge();
-            
-            // If current user is the one who got credits, update UI
-            if (currentUser && currentUser.email === userEmail) {
-                credits = userCredits;
-                updateCreditUI();
-            }
-            
-            Swal.fire('Approved!', `${amount} credits added to ${userEmail}`, 'success');
-            setTimeout(() => showAdminPanel(), 100);
+            Swal.fire({
+                title: 'Confirm Approval',
+                text: `Add ${amount} credits to ${userEmail}?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Approve'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Add credits to user
+                    addCreditsToUser(userEmail, amount);
+                    
+                    // Remove from pending requests
+                    let pending = getAllPendingRequests();
+                    pending = pending.filter(req => req.transactionId !== transactionId);
+                    saveAllPendingRequests(pending);
+                    
+                    Swal.fire('Approved!', `${amount} credits added to ${userEmail}`, 'success');
+                    setTimeout(() => showAdminPanel(), 100);
+                }
+            });
         }
         
         function rejectPayment(transactionId) {
@@ -1053,11 +1093,9 @@
                 confirmButtonText: 'Yes, Reject'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let pending = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
+                    let pending = getAllPendingRequests();
                     pending = pending.filter(req => req.transactionId !== transactionId);
-                    localStorage.setItem('pendingRequests', JSON.stringify(pending));
-                    pendingRequests = pending;
-                    updateAdminBadge();
+                    saveAllPendingRequests(pending);
                     Swal.fire('Rejected!', 'Payment request has been rejected', 'info');
                     setTimeout(() => showAdminPanel(), 100);
                 }
@@ -1351,7 +1389,6 @@
         }
         
         // Initialize
-        updateCreditUI();
         updateAdminBadge();
         
         window.onclick = (event) => {
