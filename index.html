@@ -1,1 +1,1363 @@
-bhag bhosdi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Vishal Hacker Pro - Elite Intelligence Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 20px 16px 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .user-profile {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #00ff00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .user-avatar i {
+            font-size: 24px;
+            color: #0a0e27;
+        }
+        
+        .user-details h4 {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+        
+        .user-details p {
+            color: #888;
+            font-size: 10px;
+        }
+        
+        .login-btn, .logout-btn {
+            background: linear-gradient(135deg, #00ff00, #00cc66);
+            border: none;
+            padding: 8px 18px;
+            border-radius: 25px;
+            color: #0a0e27;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            color: white;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        
+        .admin-top-btn {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+        
+        .admin-top-btn:active { transform: scale(0.95); }
+        
+        .credit-card {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .credit-info { display: flex; align-items: center; gap: 12px; }
+        .credit-icon {
+            background: #00ff00;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glow 1s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px #00ff00; }
+            50% { box-shadow: 0 0 15px #00ff00; }
+        }
+        
+        .credit-icon i { font-size: 24px; color: #0a0e27; }
+        .credit-text h3 { color: #fff; font-size: 12px; margin-bottom: 5px; }
+        .credit-text .balance { font-size: 28px; font-weight: bold; color: #00ff00; font-family: 'Orbitron', monospace; }
+        
+        .buy-btn {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .buy-btn:active { transform: scale(0.95); }
+        
+        .header { text-align: center; margin-bottom: 20px; }
+        
+        .glow-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ff00 0%, #00cc66 50%, #00ff99 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 10px;
+            color: #00ff00;
+            margin-top: 8px;
+        }
+        
+        .stats-row { display: flex; gap: 10px; margin-bottom: 20px; }
+        
+        .stat-card {
+            flex: 1;
+            background: rgba(10, 20, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+        
+        .stat-card i { font-size: 22px; color: #00ff00; margin-bottom: 5px; display: block; }
+        .stat-card .stat-value { font-size: 18px; font-weight: bold; color: #fff; font-family: 'Orbitron', monospace; }
+        .stat-card .stat-label { font-size: 9px; color: #888; text-transform: uppercase; }
+        
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px;
+            border-radius: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 12px 6px;
+            background: transparent;
+            border: none;
+            color: #aaa;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, #00ff00, #00cc66);
+            color: #0a0e27;
+            box-shadow: 0 2px 10px rgba(0,255,0,0.3);
+        }
+        
+        .tab-content { display: none; animation: fadeInUp 0.4s ease; }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: rgba(15, 25, 35, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 14px;
+            color: #00ff00;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0,255,0,0.2);
+            padding-bottom: 10px;
+        }
+        
+        .input-group { margin-bottom: 15px; }
+        
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            color: #00ff00;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0,255,0,0.2);
+        }
+        
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #00ff00, #00cc66);
+            border: none;
+            border-radius: 12px;
+            color: #0a0e27;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .result-area {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            padding: 15px;
+            max-height: 350px;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+        
+        .result-text {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #0f0;
+            white-space: pre-wrap;
+        }
+        
+        .status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+        }
+        
+        .status-text { font-size: 11px; color: #888; }
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .loading-spinner { text-align: center; padding: 20px; }
+        .loading-spinner i { font-size: 30px; color: #00ff00; animation: spin 1s linear infinite; }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            font-size: 9px;
+            color: #666;
+        }
+        
+        .coming-soon {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            display: inline-block;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 380px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid #00ff00;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .qr-code { background: white; padding: 15px; border-radius: 15px; margin: 15px 0; }
+        .qr-code img { width: 180px; height: 180px; }
+        
+        .upi-id {
+            background: rgba(0,0,0,0.5);
+            padding: 12px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            color: #00ff00;
+        }
+        
+        .amount-buttons { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; }
+        .amount-btn {
+            flex: 1;
+            padding: 10px;
+            background: #00ff00;
+            border: none;
+            border-radius: 10px;
+            color: #0a0e27;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .amount-btn:active { transform: scale(0.95); }
+        
+        .close-modal {
+            background: #ff4444;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .admin-contact { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; margin: 10px 0; font-size: 12px; }
+        .admin-contact a { color: #00ff00; text-decoration: none; }
+        
+        .admin-panel-container {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 450px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .request-item {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #00ff00;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .approve-btn {
+            background: #00ff00;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: #0a0e27;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            width: 100%;
+        }
+        
+        .notification-badge {
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        @media (max-width: 480px) {
+            .glow-text { font-size: 20px; }
+            .tab-btn { font-size: 10px; padding: 10px 4px; }
+            .credit-text .balance { font-size: 22px; }
+            .qr-code img { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- User Profile Section -->
+        <div class="user-profile" id="userProfile">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h4 id="userName">Guest User</h4>
+                    <p id="userEmail">Not logged in</p>
+                </div>
+            </div>
+            <div>
+                <button class="login-btn" id="loginBtn" onclick="showLoginModal()">
+                    <i class="fas fa-user-plus"></i> LOGIN
+                </button>
+                <button class="logout-btn" id="logoutBtn" onclick="logoutUser()" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> LOGOUT
+                </button>
+            </div>
+        </div>
+        
+        <div class="top-bar">
+            <button class="admin-top-btn" onclick="openAdminLogin()">
+                <i class="fas fa-user-shield"></i> ADMIN PANEL <span id="pendingBadge" style="display:none;" class="notification-badge">0</span>
+            </button>
+        </div>
+        
+        <div class="credit-card">
+            <div class="credit-info">
+                <div class="credit-icon"><i class="fas fa-coins"></i></div>
+                <div class="credit-text">
+                    <h3>AVAILABLE CREDITS</h3>
+                    <div class="balance" id="creditBalance">0</div>
+                </div>
+            </div>
+            <button class="buy-btn" onclick="openPaymentModal()"><i class="fas fa-shopping-cart"></i> BUY</button>
+        </div>
+        
+        <div class="header">
+            <h1 class="glow-text"><i class="fas fa-skull"></i> VISHALHACK OSINT PRO</h1>
+            <div class="badge"><i class="fas fa-shield-haltered"></i> 1 CREDIT = ₹1 | 1 SEARCH = 1 CREDIT</div>
+        </div>
+        
+        <div class="stats-row">
+            <div class="stat-card"><i class="fas fa-database"></i><div class="stat-value" id="apiCount">6</div><div class="stat-label">ACTIVE APIS</div></div>
+            <div class="stat-card"><i class="fas fa-clock"></i><div class="stat-value" id="responseTime">0ms</div><div class="stat-label">RESPONSE</div></div>
+            <div class="stat-card"><i class="fas fa-user-secret"></i><div class="stat-value" id="searchCount">0</div><div class="stat-label">SEARCHES</div></div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('mobile')"><i class="fas fa-mobile-alt"></i> MOBILE</button>
+            <button class="tab-btn" onclick="switchTab('telegram')"><i class="fab fa-telegram"></i> TELEGRAM</button>
+            <button class="tab-btn" onclick="switchTab('vehicle')"><i class="fas fa-car"></i> VEHICLE</button>
+            <button class="tab-btn" onclick="switchTab('family')"><i class="fas fa-users"></i> FAMILY</button>
+            <button class="tab-btn" onclick="switchTab('instagram')"><i class="fab fa-instagram"></i> INSTAGRAM <span class="coming-soon">Soon</span></button>
+            <button class="tab-btn" onclick="switchTab('v2n')"><i class="fas fa-exchange-alt"></i> V2N <span class="coming-soon">Soon</span></button>
+        </div>
+        
+        <!-- Mobile Tab -->
+        <div id="mobile" class="tab-content active">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-phone-alt"></i> MOBILE NUMBER INTELLIGENCE</div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-mobile-alt"></i>
+                        <input type="tel" id="mobile_number" placeholder="Enter 10-digit mobile number" maxlength="10">
+                    </div>
+                </div>
+                <button class="btn-primary" id="mobileBtn" onclick="searchWithCredit('mobile')">
+                    <i class="fas fa-search"></i> SEARCH (1 CREDIT)
+                </button>
+                <div class="result-area"><div class="result-text" id="mobile_result"><i class="fas fa-info-circle"></i> Ready for extraction...</div></div>
+                <div class="status-bar"><span class="status-text" id="mobile_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+            </div>
+        </div>
+        
+        <!-- Telegram Tab -->
+        <div id="telegram" class="tab-content">
+            <div class="card">
+                <div class="card-title"><i class="fab fa-telegram"></i> TELEGRAM ID INTELLIGENCE</div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fab fa-telegram"></i>
+                        <input type="text" id="telegram_id" placeholder="Enter Telegram ID or Username">
+                    </div>
+                </div>
+                <button class="btn-primary" id="telegramBtn" onclick="searchWithCredit('telegram')">
+                    <i class="fas fa-crosshairs"></i> SEARCH (1 CREDIT)
+                </button>
+                <div class="result-area"><div class="result-text" id="telegram_result"><i class="fas fa-info-circle"></i> Ready for tracking...</div></div>
+                <div class="status-bar"><span class="status-text" id="telegram_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+            </div>
+        </div>
+        
+        <!-- Vehicle Tab -->
+        <div id="vehicle" class="tab-content">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-car"></i> VEHICLE REGISTRATION INTELLIGENCE</div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-car"></i>
+                        <input type="text" id="vehicle_number" placeholder="e.g., MH01AB1234" style="text-transform: uppercase">
+                    </div>
+                </div>
+                <button class="btn-primary" id="vehicleBtn" onclick="searchWithCredit('vehicle')">
+                    <i class="fas fa-search"></i> SEARCH (1 CREDIT)
+                </button>
+                <div class="result-area"><div class="result-text" id="vehicle_result"><i class="fas fa-info-circle"></i> Ready for RTO lookup...</div></div>
+                <div class="status-bar"><span class="status-text" id="vehicle_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+            </div>
+        </div>
+        
+        <!-- Family Tab -->
+        <div id="family" class="tab-content">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-home"></i> FAMILY & RATION CARD INTELLIGENCE</div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" id="family_term" placeholder="Enter Aadhaar or Ration Card ID">
+                    </div>
+                </div>
+                <button class="btn-primary" id="familyBtn" onclick="searchWithCredit('family')">
+                    <i class="fas fa-users"></i> SEARCH (1 CREDIT)
+                </button>
+                <div class="result-area"><div class="result-text" id="family_result"><i class="fas fa-info-circle"></i> Ready for family lookup...</div></div>
+                <div class="status-bar"><span class="status-text" id="family_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+            </div>
+        </div>
+        
+        <!-- Instagram Tab -->
+        <div id="instagram" class="tab-content">
+            <div class="card">
+                <div class="card-title"><i class="fab fa-instagram"></i> INSTAGRAM ID TO NUMBER <span class="coming-soon">Coming Soon</span></div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fab fa-instagram"></i>
+                        <input type="text" placeholder="Enter Instagram Username" disabled style="opacity:0.6;">
+                    </div>
+                </div>
+                <button class="btn-primary" style="opacity:0.6; cursor:not-allowed;" disabled>
+                    <i class="fas fa-search"></i> SEARCH (COMING SOON)
+                </button>
+                <div class="result-area">
+                    <div class="result-text" style="color: #ff9800; text-align: center;">
+                        <i class="fas fa-tools"></i><br><br>
+                        <strong>🚧 FEATURE COMING SOON 🚧</strong><br><br>
+                        Instagram ID to Mobile Number lookup will be available soon.<br><br>
+                        <i class="fas fa-star"></i> Stay Tuned! <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div>
+            </div>
+        </div>
+        
+        <!-- Vehicle to Number Tab -->
+        <div id="v2n" class="tab-content">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-exchange-alt"></i> VEHICLE TO PHONE NUMBER <span class="coming-soon">Coming Soon</span></div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-car"></i>
+                        <input type="text" placeholder="Enter Vehicle Number" disabled style="opacity:0.6;">
+                    </div>
+                </div>
+                <button class="btn-primary" style="opacity:0.6; cursor:not-allowed;" disabled>
+                    <i class="fas fa-search"></i> SEARCH (COMING SOON)
+                </button>
+                <div class="result-area">
+                    <div class="result-text" style="color: #ff9800; text-align: center;">
+                        <i class="fas fa-tools"></i><br><br>
+                        <strong>🚧 FEATURE COMING SOON 🚧</strong><br><br>
+                        Vehicle Number to Owner's Phone Number lookup will be available soon.<br><br>
+                        <i class="fas fa-star"></i> Stay Tuned! <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <i class="fas fa-shield-alt"></i> EDUCATIONAL PURPOSE ONLY<br>
+            Developer: Vishal Hacker | Telegram: @Vishal_hack_99 | WhatsApp: +91 8207416237
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2 style="color: #00ff00; margin-bottom: 15px;"><i class="fas fa-sign-in-alt"></i> LOGIN</h2>
+            <p style="color: #fff; margin-bottom: 15px;">Enter your email to save credits & searches</p>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Enter your email address">
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="loginName" placeholder="Your name (optional)">
+                </div>
+            </div>
+            <button onclick="processLogin()" style="background: #00ff00; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; margin-top: 10px;">
+                <i class="fas fa-check-circle"></i> CONTINUE
+            </button>
+            <button class="close-modal" onclick="closeLoginModal()"><i class="fas fa-times"></i> CANCEL</button>
+        </div>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h2 style="color: #00ff00; margin-bottom: 15px;">💰 BUY CREDITS</h2>
+            <p style="color: #fff; margin-bottom: 5px;">1 Credit = ₹1 | 1 Search = 1 Credit</p>
+            <div class="amount-buttons">
+                <button class="amount-btn" onclick="setAmount(10)">₹10 = 10</button>
+                <button class="amount-btn" onclick="setAmount(20)">₹20 = 20</button>
+                <button class="amount-btn" onclick="setAmount(50)">₹50 = 50</button>
+                <button class="amount-btn" onclick="setAmount(100)">₹100 = 100</button>
+            </div>
+            <div class="qr-code">
+                <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9931630411@ptyes&pn=Vishal%20Hacker&am=10&cu=INR" alt="QR Code">
+            </div>
+            <div class="upi-id">
+                <i class="fas fa-credit-card"></i> UPI ID: <strong>9931630411@ptyes</strong>
+                <button onclick="copyUPI()" style="background: #00ff00; border: none; padding: 5px 10px; border-radius: 5px; margin-left: 10px; cursor: pointer;">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            <div class="input-group">
+                <input type="number" id="creditAmount" placeholder="Enter amount (₹)" style="text-align: center;" value="10">
+            </div>
+            <div class="input-group">
+                <input type="text" id="transactionId" placeholder="Enter Transaction ID / UTR No." style="text-align: center;">
+            </div>
+            <div class="admin-contact">
+                <i class="fab fa-whatsapp"></i> <strong>📱 AFTER PAYMENT, CONTACT ADMIN:</strong><br>
+                <a href="https://wa.me/918207416237?text=I%20want%20to%20buy%20credits" target="_blank" style="color: #25D366; font-size: 14px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: +91 8207416237
+                </a><br>
+                <a href="https://t.me/Vishal_hack_99" target="_blank" style="color: #0088cc; font-size: 14px;">
+                    <i class="fab fa-telegram"></i> Telegram: @Vishal_hack_99
+                </a>
+            </div>
+            <div class="admin-contact" style="background: rgba(255,193,7,0.2); border: 1px solid #ffc107;">
+                <i class="fas fa-info-circle"></i> <strong>How it works:</strong><br>
+                1️⃣ Pay amount to above UPI ID<br>
+                2️⃣ Enter Transaction ID<br>
+                3️⃣ Click "SUBMIT" below<br>
+                4️⃣ Contact Admin on WhatsApp/Telegram<br>
+                5️⃣ Admin will approve & add credits
+            </div>
+            <button onclick="submitPaymentRequest()" style="background: #ff9800; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; margin-top: 10px;">
+                <i class="fas fa-paper-plane"></i> SUBMIT & CONTACT ADMIN
+            </button>
+            <button class="close-modal" onclick="closePaymentModal()"><i class="fas fa-times"></i> CLOSE</button>
+        </div>
+    </div>
+    
+    <script>
+        // ADMIN CREDENTIALS - CHANGE THIS PASSWORD
+        const ADMIN_PASSWORD = "Vishalhack9933";
+        
+        // User data storage keys
+        function getUserCreditsKey(email) {
+            return `vishalCredits_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+        }
+        
+        function getUserSearchesKey(email) {
+            return `vishalSearches_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
+        }
+        
+        // Global variables
+        let currentUser = null;
+        let credits = 0;
+        let totalSearches = 0;
+        let pendingRequests = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
+        
+        // Load user data
+        function loadUserData(email) {
+            if (!email) return { credits: 0, searches: 0 };
+            const credits = localStorage.getItem(getUserCreditsKey(email));
+            const searches = localStorage.getItem(getUserSearchesKey(email));
+            return {
+                credits: credits ? parseInt(credits) : 0,
+                searches: searches ? parseInt(searches) : 0
+            };
+        }
+        
+        function saveUserCredits(email, credits) {
+            if (email) {
+                localStorage.setItem(getUserCreditsKey(email), credits);
+            }
+        }
+        
+        function saveUserSearches(email, searches) {
+            if (email) {
+                localStorage.setItem(getUserSearchesKey(email), searches);
+            }
+        }
+        
+        function updateCreditUI() {
+            document.getElementById('creditBalance').innerText = credits;
+            document.getElementById('searchCount').innerText = totalSearches;
+            const btns = ['mobileBtn', 'telegramBtn', 'vehicleBtn', 'familyBtn'];
+            btns.forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) {
+                    btn.disabled = credits <= 0;
+                    btn.style.opacity = credits <= 0 ? '0.5' : '1';
+                }
+            });
+        }
+        
+        function deductCredit() {
+            if (credits > 0 && currentUser) {
+                credits--;
+                totalSearches++;
+                saveUserCredits(currentUser.email, credits);
+                saveUserSearches(currentUser.email, totalSearches);
+                updateCreditUI();
+                return true;
+            } else if (credits > 0 && !currentUser) {
+                Swal.fire('Please Login', 'You need to login first', 'warning').then(() => showLoginModal());
+                return false;
+            }
+            return false;
+        }
+        
+        function addCredits(amount) {
+            const creditsToAdd = parseInt(amount);
+            if (currentUser) {
+                credits += creditsToAdd;
+                saveUserCredits(currentUser.email, credits);
+                updateCreditUI();
+                return creditsToAdd;
+            }
+            return 0;
+        }
+        
+        // Login functions
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+        
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        
+        function processLogin() {
+            const email = document.getElementById('loginEmail').value.trim();
+            const name = document.getElementById('loginName').value.trim();
+            
+            if (!email) {
+                Swal.fire('Error', 'Please enter your email address', 'error');
+                return;
+            }
+            
+            if (!email.includes('@')) {
+                Swal.fire('Error', 'Please enter a valid email address', 'error');
+                return;
+            }
+            
+            currentUser = { 
+                email: email, 
+                displayName: name || email.split('@')[0]
+            };
+            
+            document.getElementById('userName').innerHTML = currentUser.displayName;
+            document.getElementById('userEmail').innerHTML = currentUser.email;
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'block';
+            
+            // Load user data
+            const userData = loadUserData(currentUser.email);
+            credits = userData.credits;
+            totalSearches = userData.searches;
+            updateCreditUI();
+            
+            closeLoginModal();
+            Swal.fire('Welcome!', `Logged in as ${currentUser.email}`, 'success');
+        }
+        
+        function logoutUser() {
+            currentUser = null;
+            credits = 0;
+            totalSearches = 0;
+            updateCreditUI();
+            document.getElementById('userName').innerHTML = 'Guest User';
+            document.getElementById('userEmail').innerHTML = 'Not logged in';
+            document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('logoutBtn').style.display = 'none';
+            Swal.fire('Logged Out', 'You have been logged out', 'info');
+        }
+        
+        // Payment functions
+        function setAmount(amount) {
+            document.getElementById('creditAmount').value = amount;
+            updateQRCode(amount);
+        }
+        
+        function updateQRCode(amount) {
+            const upi = '9931630411@ptyes';
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${upi}&pn=Vishal%20Hacker&am=${amount}&cu=INR`;
+            document.getElementById('qrImage').src = qrUrl;
+        }
+        
+        function submitPaymentRequest() {
+            if (!currentUser) {
+                Swal.fire('Please Login', 'You need to login first to buy credits', 'warning').then(() => showLoginModal());
+                return;
+            }
+            
+            let amount = parseInt(document.getElementById('creditAmount').value);
+            let transactionId = document.getElementById('transactionId').value.trim();
+            
+            if (!amount || amount < 1) {
+                Swal.fire('Error', 'Please enter valid amount (minimum ₹1)', 'error');
+                return;
+            }
+            if (!transactionId) {
+                Swal.fire('Error', 'Please enter Transaction ID / UTR Number', 'error');
+                return;
+            }
+            
+            const request = { 
+                transactionId, 
+                amount, 
+                credits: amount, 
+                userEmail: currentUser.email,
+                userName: currentUser.displayName,
+                timestamp: new Date().toISOString(), 
+                status: 'pending' 
+            };
+            
+            pendingRequests.push(request);
+            localStorage.setItem('pendingRequests', JSON.stringify(pendingRequests));
+            
+            // Update badge if admin is logged in
+            updateAdminBadge();
+            
+            // Show success with admin contact
+            Swal.fire({
+                title: '✅ Request Submitted!',
+                html: `<strong>💰 Amount:</strong> ₹${amount}<br>
+                       <strong>⭐ Credits:</strong> ${amount}<br>
+                       <strong>🆔 Transaction ID:</strong> ${transactionId}<br>
+                       <strong>👤 User:</strong> ${currentUser.email}<br><br>
+                       <strong>📱 NOW CONTACT ADMIN FOR APPROVAL:</strong><br>
+                       <a href="https://wa.me/918207416237?text=My%20Transaction%20ID%20is%20${transactionId}%20for%20₹${amount}%20User:%20${currentUser.email}" target="_blank" style="background:#25D366; display:inline-block; padding:8px 15px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
+                           <i class="fab fa-whatsapp"></i> WhatsApp Admin
+                       </a><br>
+                       <a href="https://t.me/Vishal_hack_99" target="_blank" style="background:#0088cc; display:inline-block; padding:8px 15px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
+                           <i class="fab fa-telegram"></i> Telegram Admin
+                       </a>`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+            
+            document.getElementById('transactionId').value = '';
+            closePaymentModal();
+        }
+        
+        function updateAdminBadge() {
+            const pendingCount = pendingRequests.length;
+            const badge = document.getElementById('pendingBadge');
+            if (pendingCount > 0) {
+                badge.style.display = 'inline-block';
+                badge.innerText = pendingCount;
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        
+        // ADMIN FUNCTIONS - Only you can approve
+        function openAdminLogin() {
+            Swal.fire({
+                title: '🔐 ADMIN LOGIN',
+                html: '<input type="password" id="adminPassword" class="swal2-input" placeholder="Enter admin password">',
+                showCancelButton: true,
+                confirmButtonText: 'Login',
+                preConfirm: () => document.getElementById('adminPassword').value
+            }).then((result) => {
+                if (result.isConfirmed && result.value === ADMIN_PASSWORD) {
+                    showAdminPanel();
+                } else if (result.isConfirmed) {
+                    Swal.fire('Access Denied!', 'Incorrect admin password', 'error');
+                }
+            });
+        }
+        
+        function showAdminPanel() {
+            let pending = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
+            
+            if (pending.length === 0) {
+                Swal.fire('No Pending Requests', 'All payment requests have been processed', 'info');
+                return;
+            }
+            
+            let html = '<div class="admin-panel-container"><h2 style="color:#00ff00;text-align:center;">🔐 PENDING REQUESTS</h2><p style="text-align:center;font-size:12px;margin-bottom:10px;">Total: ' + pending.length + ' requests</p>';
+            
+            pending.forEach((req, i) => {
+                html += `<div class="request-item">
+                    <small>#${i+1}</small><br>
+                    <strong style="color:#00ff00;">Transaction ID:</strong> ${req.transactionId}<br>
+                    <strong>💰 Amount:</strong> ₹${req.amount}<br>
+                    <strong>⭐ Credits:</strong> ${req.credits}<br>
+                    <strong>👤 User Email:</strong> ${req.userEmail || 'N/A'}<br>
+                    <strong>👤 User Name:</strong> ${req.userName || 'N/A'}<br>
+                    <strong>🕐 Time:</strong> ${new Date(req.timestamp).toLocaleString()}<br>
+                    <button class="approve-btn" onclick="approvePayment('${req.transactionId}', ${req.amount}, '${req.userEmail}')">✅ APPROVE & ADD ${req.credits} CREDITS</button>
+                    <button class="approve-btn" onclick="rejectPayment('${req.transactionId}')" style="background:#ff4444; color:white;">❌ REJECT</button>
+                </div>`;
+            });
+            
+            html += '<button class="close-modal" onclick="Swal.close()" style="margin-top:10px;">Close</button></div>';
+            
+            Swal.fire({
+                title: '',
+                html: html,
+                showConfirmButton: false,
+                showCloseButton: true,
+                width: '480px'
+            });
+        }
+        
+        function approvePayment(transactionId, amount, userEmail) {
+            // Add credits to specific user
+            const userCreditsKey = getUserCreditsKey(userEmail);
+            let userCredits = localStorage.getItem(userCreditsKey) ? parseInt(localStorage.getItem(userCreditsKey)) : 0;
+            userCredits += amount;
+            localStorage.setItem(userCreditsKey, userCredits);
+            
+            // Remove from pending requests
+            let pending = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
+            pending = pending.filter(req => req.transactionId !== transactionId);
+            localStorage.setItem('pendingRequests', JSON.stringify(pending));
+            
+            // Update global pending requests
+            pendingRequests = pending;
+            updateAdminBadge();
+            
+            // If current user is the one who got credits, update UI
+            if (currentUser && currentUser.email === userEmail) {
+                credits = userCredits;
+                updateCreditUI();
+            }
+            
+            Swal.fire('Approved!', `${amount} credits added to ${userEmail}`, 'success');
+            setTimeout(() => showAdminPanel(), 100);
+        }
+        
+        function rejectPayment(transactionId) {
+            Swal.fire({
+                title: 'Confirm Rejection',
+                text: 'Are you sure you want to reject this payment request?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Reject'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let pending = JSON.parse(localStorage.getItem('pendingRequests') || '[]');
+                    pending = pending.filter(req => req.transactionId !== transactionId);
+                    localStorage.setItem('pendingRequests', JSON.stringify(pending));
+                    pendingRequests = pending;
+                    updateAdminBadge();
+                    Swal.fire('Rejected!', 'Payment request has been rejected', 'info');
+                    setTimeout(() => showAdminPanel(), 100);
+                }
+            });
+        }
+        
+        // API Functions
+        const API_URLS = {
+            mobile: 'https://ayaanmods.site/number.php?key=annonymous&number=',
+            telegram: 'https://ayaanmods.site/tg2num.php?key=annonymoustgtonum&id=',
+            vehicle: 'https://vehicleinfobyterabaap.vercel.app/lookup',
+            family: 'https://ayaanmods.site/family.php?key=annonymousfamily&term='
+        };
+        
+        const PROXIES = ['https://corsproxy.io/?', 'https://api.allorigins.win/raw?url=', 'https://cors-anywhere.herokuapp.com/'];
+        
+        async function fetchAPI(url) {
+            try {
+                const response = await fetch(url);
+                if (response.ok) return await response.json();
+            } catch(e) {}
+            for (const proxy of PROXIES) {
+                try {
+                    const response = await fetch(proxy + encodeURIComponent(url));
+                    if (response.ok) {
+                        const text = await response.text();
+                        try { return JSON.parse(text); } catch(e) { return { raw: text }; }
+                    }
+                } catch(e) {}
+            }
+            throw new Error('Connection failed');
+        }
+        
+        async function searchWithCredit(type) {
+            if (!currentUser) {
+                Swal.fire('Please Login', 'You need to login first', 'warning').then(() => showLoginModal());
+                return;
+            }
+            if (credits <= 0) {
+                Swal.fire('No Credits!', 'Please buy credits. 1 Credit = ₹1', 'warning').then(() => openPaymentModal());
+                return;
+            }
+            
+            let value = '';
+            switch(type) {
+                case 'mobile':
+                    value = document.getElementById('mobile_number').value.trim();
+                    if (!value || value.length !== 10 || !/^\d+$/.test(value)) {
+                        Swal.fire('Error', 'Please enter valid 10-digit mobile number', 'error');
+                        return;
+                    }
+                    break;
+                case 'telegram':
+                    value = document.getElementById('telegram_id').value.trim();
+                    if (!value) {
+                        Swal.fire('Error', 'Please enter Telegram ID', 'error');
+                        return;
+                    }
+                    break;
+                case 'vehicle':
+                    value = document.getElementById('vehicle_number').value.trim().toUpperCase();
+                    if (!value) {
+                        Swal.fire('Error', 'Please enter vehicle number', 'error');
+                        return;
+                    }
+                    break;
+                case 'family':
+                    value = document.getElementById('family_term').value.trim();
+                    if (!value) {
+                        Swal.fire('Error', 'Please enter Aadhaar or RC ID', 'error');
+                        return;
+                    }
+                    break;
+            }
+            
+            const confirm = await Swal.fire({
+                title: 'Confirm Search',
+                text: `Use 1 credit? Balance: ${credits} credits`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes'
+            });
+            
+            if (confirm.isConfirmed && deductCredit()) {
+                performSearch(type, value);
+            }
+        }
+        
+        async function performSearch(type, value) {
+            updateStatus(type, 'SEARCHING...');
+            updateResult(type, '🔍 Processing...', true);
+            try {
+                let url, data;
+                switch(type) {
+                    case 'mobile':
+                        url = API_URLS.mobile + value;
+                        data = await fetchAPI(url);
+                        displayMobileResult(data, value);
+                        break;
+                    case 'telegram':
+                        url = API_URLS.telegram + encodeURIComponent(value);
+                        data = await fetchAPI(url);
+                        displayTelegramResult(data, value);
+                        break;
+                    case 'vehicle':
+                        url = `${API_URLS.vehicle}?rc=${encodeURIComponent(value)}`;
+                        data = await fetchAPI(url);
+                        displayVehicleResult(data, value);
+                        break;
+                    case 'family':
+                        url = API_URLS.family + encodeURIComponent(value);
+                        data = await fetchAPI(url);
+                        displayFamilyResult(data, value);
+                        break;
+                }
+            } catch (error) {
+                updateResult(type, `❌ Error: ${error.message}`, false);
+                updateStatus(type, 'FAILED', true);
+            }
+        }
+        
+        function displayMobileResult(data, number) {
+            if (data.error || !data.result || data.result.length === 0) {
+                updateResult('mobile', '❌ No data found', false);
+                updateStatus('mobile', 'NOT FOUND', true);
+                return;
+            }
+            const r = data.result[0];
+            let html = `<strong>✅ MOBILE INTELLIGENCE</strong><br><hr>
+                <strong>📱 Number:</strong> ${number}<br>
+                <strong>👤 Name:</strong> ${r.name || 'N/A'}<br>
+                <strong>👨 Father:</strong> ${r.father_name || 'N/A'}<br>
+                <strong>📞 Alternate:</strong> ${r.alternate || 'N/A'}<br>
+                <strong>📧 Email:</strong> ${r.email || 'N/A'}<br>
+                <strong>🏠 Address:</strong> ${r.address || 'N/A'}<br>
+                <strong>📍 Circle:</strong> ${r.circle || 'N/A'}<br>
+                <strong>🆔 Customer ID:</strong> ${r.id || r.customer_id || 'N/A'}<br>
+                <hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            updateResult('mobile', html, false);
+            updateStatus('mobile', 'COMPLETED');
+        }
+        
+        function displayTelegramResult(data, tgId) {
+            if (data.error || !data.success) {
+                updateResult('telegram', '❌ No data found', false);
+                updateStatus('telegram', 'NOT FOUND', true);
+                return;
+            }
+            const r = data.result || {};
+            let html = `<strong>✅ TELEGRAM INTELLIGENCE</strong><br><hr>
+                <strong>📌 ID:</strong> ${tgId}<br>
+                <strong>🔔 User ID:</strong> ${r.tg_id || 'N/A'}<br>
+                <strong>🌍 Country:</strong> ${r.country || 'N/A'}<br>
+                <strong>📞 Code:</strong> ${r.country_code || 'N/A'}<br>
+                <strong>📱 Mobile:</strong> ${r.number || 'N/A'}<br>
+                <hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            updateResult('telegram', html, false);
+            updateStatus('telegram', 'COMPLETED');
+        }
+        
+        function displayVehicleResult(data, rc) {
+            if (data.error) {
+                updateResult('vehicle', '❌ No data found', false);
+                updateStatus('vehicle', 'NOT FOUND', true);
+                return;
+            }
+            let html = `<strong>✅ VEHICLE INTELLIGENCE</strong><br><hr><strong>🚗 Number:</strong> ${rc}<br>`;
+            for (let key in data) {
+                if (key !== '_response_time_ms' && key !== '_developer' && data[key]) {
+                    html += `<strong>${key.replace(/_/g, ' ').toUpperCase()}:</strong> ${data[key]}<br>`;
+                }
+            }
+            html += `<hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            updateResult('vehicle', html, false);
+            updateStatus('vehicle', 'COMPLETED');
+        }
+        
+        function displayFamilyResult(data, term) {
+            if (!data) {
+                updateResult('family', '❌ No response from server', false);
+                updateStatus('family', 'SERVER ERROR', true);
+                return;
+            }
+            if (data.error) {
+                updateResult('family', `❌ ${data.error}`, false);
+                updateStatus('family', 'ERROR', true);
+                return;
+            }
+            if (!data.result && !data.data && !data.success) {
+                updateResult('family', '❌ No family data found for this ID\n\n⚠️ Please check the ID and try again.', false);
+                updateStatus('family', 'NOT FOUND', true);
+                return;
+            }
+            
+            let html = `<strong>✅ FAMILY INTELLIGENCE</strong><br><hr>`;
+            html += `<strong>🔍 QUERY ID:</strong> ${term}<br><br>`;
+            
+            let result = data.result || data.data || {};
+            if (result.results && result.results.length > 0) {
+                result = result.results[0];
+            }
+            
+            const rcDetails = result.ration_card_details || result.rationCardDetails || {};
+            if (Object.keys(rcDetails).length > 0) {
+                html += `<strong>📋 RATION CARD DETAILS:</strong><br>`;
+                html += `   🏛️ State: ${rcDetails.state_name || rcDetails.state || 'N/A'}<br>`;
+                html += `   🏙️ District: ${rcDetails.district_name || rcDetails.district || 'N/A'}<br>`;
+                html += `   🆔 Card No: ${rcDetails.ration_card_no || rcDetails.cardNo || 'N/A'}<br>`;
+                html += `   📜 Scheme: ${rcDetails.scheme_name || rcDetails.scheme || 'N/A'}<br><br>`;
+            }
+            
+            let members = result.members || result.familyMembers || [];
+            if (members.length > 0) {
+                html += `<strong>👨‍👩‍👧‍👦 FAMILY MEMBERS (${members.length}):</strong><br>`;
+                members.forEach((m, i) => {
+                    html += `<br>${i+1}. <strong>${m.member_name || m.name || 'N/A'}</strong><br>`;
+                    html += `   🆔 ID: ${m.member_id || m.id || 'N/A'}<br>`;
+                    if (m.relation || m.relationship) html += `   👥 Relation: ${m.relation || m.relationship}<br>`;
+                    if (m.age) html += `   📅 Age: ${m.age}<br>`;
+                });
+            } else if (result.pd && result.pd.memberDetailsList) {
+                members = result.pd.memberDetailsList;
+                if (members.length > 0) {
+                    html += `<strong>👨‍👩‍👧‍👦 FAMILY MEMBERS (${members.length}):</strong><br>`;
+                    members.forEach((m, i) => {
+                        html += `<br>${i+1}. <strong>${m.memberName || 'N/A'}</strong><br>`;
+                        html += `   🆔 ID: ${m.memberId || 'N/A'}<br>`;
+                        if (m.releationship_name) html += `   👥 Relation: ${m.releationship_name}<br>`;
+                    });
+                } else {
+                    html += `<br><strong>⚠️ No family members found in database</strong><br>`;
+                }
+            } else {
+                html += `<br><strong>⚠️ No family members found in database</strong><br>`;
+            }
+            
+            const addInfo = result.additional_info || result.additionalInfo || {};
+            if (Object.keys(addInfo).length > 0) {
+                html += `<br><strong>ℹ️ ADDITIONAL INFORMATION:</strong><br>`;
+                html += `   🏪 FPS Category: ${addInfo.fps_category || addInfo.fpsCategory || 'N/A'}<br>`;
+                html += `   🔄 IMPDS Allowed: ${addInfo.impds_transaction_allowed || addInfo.impdsAllowed || 'N/A'}<br>`;
+            }
+            
+            html += `<hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            updateResult('family', html, false);
+            updateStatus('family', members.length > 0 ? `${members.length} MEMBERS FOUND` : 'ID FOUND');
+        }
+        
+        function updateStatus(tab, message, isError = false) {
+            const span = document.getElementById(`${tab}_status`);
+            if (span) {
+                span.innerHTML = isError ? `⚠ ${message}` : `● ${message}`;
+                span.style.color = isError ? '#ff6666' : '#888';
+            }
+        }
+        
+        function updateResult(tab, content, isLoading = false) {
+            const div = document.getElementById(`${tab}_result`);
+            if (div) {
+                if (isLoading) {
+                    div.innerHTML = `<div class="loading-spinner"><i class="fas fa-spinner"></i><br><span>${content}</span></div>`;
+                } else {
+                    div.innerHTML = content;
+                }
+            }
+        }
+        
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function openPaymentModal() {
+            if (!currentUser) {
+                Swal.fire('Please Login', 'You need to login first to buy credits', 'warning').then(() => showLoginModal());
+                return;
+            }
+            document.getElementById('paymentModal').style.display = 'flex';
+            updateQRCode(document.getElementById('creditAmount')?.value || '10');
+        }
+        
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+        
+        function copyUPI() {
+            navigator.clipboard.writeText('9931630411@ptyes');
+            Swal.fire('Copied!', 'UPI ID copied to clipboard', 'success');
+        }
+        
+        // Initialize
+        updateCreditUI();
+        updateAdminBadge();
+        
+        window.onclick = (event) => {
+            if (event.target === document.getElementById('paymentModal')) closePaymentModal();
+            if (event.target === document.getElementById('loginModal')) closeLoginModal();
+        }
+    </script>
+</body>
+</html>
