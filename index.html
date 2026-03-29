@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Vishal Hacker Pro - Elite Intelligence Suite</title>
+    <title>VISHALHACK OSINT PRO | Elite Intelligence Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -27,132 +27,27 @@
             z-index: 1;
         }
         
-        .user-profile {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 20px;
-            padding: 12px 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
         }
         
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .user-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: #00ff00;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .user-avatar i {
-            font-size: 24px;
-            color: #0a0e27;
-        }
-        
-        .user-details h4 {
-            color: #fff;
-            font-size: 14px;
-            margin-bottom: 3px;
-        }
-        
-        .user-details p {
-            color: #888;
-            font-size: 10px;
-        }
-        
-        .login-btn, .logout-btn {
+        .logo {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #00ff00, #00cc66);
-            border: none;
-            padding: 8px 18px;
-            border-radius: 25px;
-            color: #0a0e27;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 12px;
-        }
-        
-        .logout-btn {
-            background: linear-gradient(135deg, #ff4444, #cc0000);
-            color: white;
-        }
-        
-        .top-bar {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 15px;
-        }
-        
-        .admin-top-btn {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-        }
-        
-        .admin-top-btn:active { transform: scale(0.95); }
-        
-        .credit-card {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 20px;
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .credit-info { display: flex; align-items: center; gap: 12px; }
-        .credit-icon {
-            background: #00ff00;
-            width: 45px;
-            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: glow 1s ease-in-out infinite;
+            margin: 0 auto 15px;
+            box-shadow: 0 0 30px rgba(0,255,0,0.3);
         }
         
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px #00ff00; }
-            50% { box-shadow: 0 0 15px #00ff00; }
+        .logo i {
+            font-size: 35px;
+            color: #0a0e27;
         }
-        
-        .credit-icon i { font-size: 24px; color: #0a0e27; }
-        .credit-text h3 { color: #fff; font-size: 12px; margin-bottom: 5px; }
-        .credit-text .balance { font-size: 28px; font-weight: bold; color: #00ff00; font-family: 'Orbitron', monospace; }
-        
-        .buy-btn {
-            background: linear-gradient(135deg, #ff9800, #ff5722);
-            border: none;
-            padding: 10px 18px;
-            border-radius: 25px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .buy-btn:active { transform: scale(0.95); }
-        
-        .header { text-align: center; margin-bottom: 20px; }
         
         .glow-text {
             font-family: 'Orbitron', monospace;
@@ -170,39 +65,68 @@
             50% { opacity: 0.95; }
         }
         
+        .subtitle {
+            color: #888;
+            font-size: 10px;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+        
         .badge {
             display: inline-block;
             background: rgba(0, 255, 0, 0.1);
             border: 1px solid #00ff00;
             border-radius: 20px;
             padding: 4px 12px;
-            font-size: 10px;
+            font-size: 9px;
             color: #00ff00;
-            margin-top: 8px;
+            margin-top: 10px;
         }
         
-        .stats-row { display: flex; gap: 10px; margin-bottom: 20px; }
+        .stats-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
         
         .stat-card {
             flex: 1;
             background: rgba(10, 20, 30, 0.6);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
+            border-radius: 16px;
             padding: 12px 8px;
             text-align: center;
-            border: 1px solid rgba(0, 255, 0, 0.2);
+            border: 1px solid rgba(0, 255, 0, 0.15);
+            transition: all 0.3s ease;
         }
         
-        .stat-card i { font-size: 22px; color: #00ff00; margin-bottom: 5px; display: block; }
-        .stat-card .stat-value { font-size: 18px; font-weight: bold; color: #fff; font-family: 'Orbitron', monospace; }
-        .stat-card .stat-label { font-size: 9px; color: #888; text-transform: uppercase; }
+        .stat-card i { 
+            font-size: 22px; 
+            color: #00ff00; 
+            margin-bottom: 6px; 
+            display: block;
+        }
+        
+        .stat-card .stat-value { 
+            font-size: 18px; 
+            font-weight: bold; 
+            color: #fff; 
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .stat-card .stat-label { 
+            font-size: 8px; 
+            color: #888; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         
         .tabs {
             display: flex;
             gap: 8px;
             margin-bottom: 20px;
             background: rgba(0, 0, 0, 0.3);
-            padding: 5px;
+            padding: 6px;
             border-radius: 20px;
             flex-wrap: wrap;
         }
@@ -214,19 +138,24 @@
             border: none;
             color: #aaa;
             font-weight: 600;
-            font-size: 12px;
+            font-size: 11px;
             cursor: pointer;
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn i {
+            font-size: 13px;
         }
         
         .tab-btn.active {
             background: linear-gradient(135deg, #00ff00, #00cc66);
             color: #0a0e27;
-            box-shadow: 0 2px 10px rgba(0,255,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,255,0,0.3);
         }
         
         .tab-content { display: none; animation: fadeInUp 0.4s ease; }
@@ -258,7 +187,7 @@
             padding-bottom: 10px;
         }
         
-        .input-group { margin-bottom: 15px; }
+        .input-group { margin-bottom: 18px; }
         
         .input-wrapper {
             position: relative;
@@ -273,7 +202,7 @@
             font-size: 14px;
         }
         
-        input, select {
+        input {
             width: 100%;
             padding: 14px 15px 14px 45px;
             background: rgba(0, 0, 0, 0.5);
@@ -281,9 +210,10 @@
             border-radius: 12px;
             color: #fff;
             font-size: 14px;
+            transition: all 0.3s ease;
         }
         
-        input:focus, select:focus {
+        input:focus {
             outline: none;
             border-color: #00ff00;
             box-shadow: 0 0 10px rgba(0,255,0,0.2);
@@ -304,16 +234,16 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 15px;
+            transition: all 0.3s ease;
         }
         
         .btn-primary:active { transform: scale(0.98); }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
         
         .result-area {
             background: rgba(0, 0, 0, 0.6);
             border-radius: 12px;
             padding: 15px;
-            max-height: 350px;
+            max-height: 380px;
             overflow-y: auto;
             border: 1px solid rgba(0, 255, 0, 0.2);
         }
@@ -336,7 +266,7 @@
             border-radius: 10px;
         }
         
-        .status-text { font-size: 11px; color: #888; }
+        .status-text { font-size: 10px; color: #888; }
         .status-indicator {
             width: 8px;
             height: 8px;
@@ -368,195 +298,70 @@
             color: #666;
         }
         
+        .footer a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        
         .coming-soon {
             background: linear-gradient(135deg, #ff9800, #ff5722);
             color: white;
-            font-size: 10px;
+            font-size: 9px;
             padding: 2px 8px;
             border-radius: 20px;
             margin-left: 8px;
             display: inline-block;
         }
         
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 20px;
-            padding: 25px;
-            max-width: 380px;
-            width: 90%;
-            text-align: center;
-            border: 1px solid #00ff00;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .qr-code { background: white; padding: 15px; border-radius: 15px; margin: 15px 0; }
-        .qr-code img { width: 180px; height: 180px; }
-        
-        .upi-id {
-            background: rgba(0,0,0,0.5);
-            padding: 12px;
-            border-radius: 10px;
-            margin: 10px 0;
-            font-family: monospace;
-            color: #00ff00;
-        }
-        
-        .amount-buttons { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; }
-        .amount-btn {
-            flex: 1;
-            padding: 10px;
-            background: #00ff00;
-            border: none;
-            border-radius: 10px;
-            color: #0a0e27;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .amount-btn:active { transform: scale(0.95); }
-        
-        .close-modal {
-            background: #ff4444;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            color: white;
-            margin-top: 15px;
-            cursor: pointer;
-            width: 100%;
-        }
-        
-        .admin-contact { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; margin: 10px 0; font-size: 12px; }
-        .admin-contact a { color: #00ff00; text-decoration: none; }
-        
-        .admin-panel-container {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        
-        .request-item {
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #00ff00;
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 12px;
-        }
-        
-        .approve-btn {
-            background: #00ff00;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
-            color: #0a0e27;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 8px;
-            width: 100%;
-        }
-        
-        .notification-badge {
-            background: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 10px;
-            margin-left: 5px;
-        }
-        
-        .refresh-btn {
-            background: #2196F3;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            font-size: 11px;
-            margin-left: 10px;
-        }
-        
         @media (max-width: 480px) {
             .glow-text { font-size: 20px; }
-            .tab-btn { font-size: 10px; padding: 10px 4px; }
-            .credit-text .balance { font-size: 22px; }
-            .qr-code img { width: 150px; height: 150px; }
+            .tab-btn { font-size: 9px; padding: 10px 4px; }
+            .tab-btn i { font-size: 11px; }
+            .card { padding: 16px; }
+        }
+        
+        .result-area::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .result-area::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        
+        .result-area::-webkit-scrollbar-thumb {
+            background: #00ff00;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="user-profile" id="userProfile">
-            <div class="user-info">
-                <div class="user-avatar">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="user-details">
-                    <h4 id="userName">Guest User</h4>
-                    <p id="userEmail">Not logged in</p>
-                </div>
-            </div>
-            <div>
-                <button class="login-btn" id="loginBtn" onclick="showLoginModal()">
-                    <i class="fas fa-user-plus"></i> LOGIN
-                </button>
-                <button class="logout-btn" id="logoutBtn" onclick="logoutUser()" style="display: none;">
-                    <i class="fas fa-sign-out-alt"></i> LOGOUT
-                </button>
-            </div>
-        </div>
-        
-        <div class="top-bar">
-            <button class="admin-top-btn" onclick="openAdminLogin()">
-                <i class="fas fa-user-shield"></i> ADMIN PANEL <span id="pendingBadge" class="notification-badge" style="display:none;">0</span>
-            </button>
-        </div>
-        
-        <div class="credit-card">
-            <div class="credit-info">
-                <div class="credit-icon"><i class="fas fa-coins"></i></div>
-                <div class="credit-text">
-                    <h3>AVAILABLE CREDITS</h3>
-                    <div class="balance" id="creditBalance">0</div>
-                </div>
-            </div>
-            <button class="buy-btn" onclick="openPaymentModal()"><i class="fas fa-shopping-cart"></i> BUY</button>
-        </div>
-        
+        <!-- Header -->
         <div class="header">
-            <h1 class="glow-text"><i class="fas fa-skull"></i> VISHALHACK OSINT PRO</h1>
-            <div class="badge"><i class="fas fa-shield-haltered"></i> 1 CREDIT = ₹1 | 1 SEARCH = 1 CREDIT</div>
+            <div class="logo">
+                <i class="fas fa-skull"></i>
+            </div>
+            <h1 class="glow-text">VISHALHACK OSINT PRO</h1>
+            <div class="subtitle">ELITE INTELLIGENCE SUITE</div>
+            <div class="badge"><i class="fas fa-shield-alt"></i> OSINT | SECURE | FAST</div>
         </div>
         
+        <!-- Stats -->
         <div class="stats-row">
-            <div class="stat-card"><i class="fas fa-database"></i><div class="stat-value" id="apiCount">6</div><div class="stat-label">ACTIVE APIS</div></div>
-            <div class="stat-card"><i class="fas fa-clock"></i><div class="stat-value" id="responseTime">0ms</div><div class="stat-label">RESPONSE</div></div>
-            <div class="stat-card"><i class="fas fa-user-secret"></i><div class="stat-value" id="searchCount">0</div><div class="stat-label">SEARCHES</div></div>
+            <div class="stat-card"><i class="fas fa-database"></i><div class="stat-value">4</div><div class="stat-label">ACTIVE APIS</div></div>
+            <div class="stat-card"><i class="fas fa-bolt"></i><div class="stat-value">< 1s</div><div class="stat-label">RESPONSE</div></div>
+            <div class="stat-card"><i class="fas fa-globe"></i><div class="stat-value">PRO</div><div class="stat-label">ACCESS</div></div>
         </div>
         
+        <!-- Tabs -->
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('mobile')"><i class="fas fa-mobile-alt"></i> MOBILE</button>
             <button class="tab-btn" onclick="switchTab('telegram')"><i class="fab fa-telegram"></i> TELEGRAM</button>
             <button class="tab-btn" onclick="switchTab('vehicle')"><i class="fas fa-car"></i> VEHICLE</button>
             <button class="tab-btn" onclick="switchTab('family')"><i class="fas fa-users"></i> FAMILY</button>
-            <button class="tab-btn" onclick="switchTab('instagram')"><i class="fab fa-instagram"></i> INSTAGRAM <span class="coming-soon">Soon</span></button>
-            <button class="tab-btn" onclick="switchTab('v2n')"><i class="fas fa-exchange-alt"></i> V2N <span class="coming-soon">Soon</span></button>
+            <button class="tab-btn" onclick="switchTab('instagram')"><i class="fab fa-instagram"></i> INSTA</button>
+            <button class="tab-btn" onclick="switchTab('v2n')"><i class="fas fa-exchange-alt"></i> V2N</button>
         </div>
         
         <!-- Mobile Tab -->
@@ -569,11 +374,11 @@
                         <input type="tel" id="mobile_number" placeholder="Enter 10-digit mobile number" maxlength="10">
                     </div>
                 </div>
-                <button class="btn-primary" id="mobileBtn" onclick="searchWithCredit('mobile')">
-                    <i class="fas fa-search"></i> SEARCH (1 CREDIT)
+                <button class="btn-primary" onclick="performSearch('mobile')">
+                    <i class="fas fa-search"></i> SEARCH NOW
                 </button>
-                <div class="result-area"><div class="result-text" id="mobile_result"><i class="fas fa-info-circle"></i> Ready for extraction...</div></div>
-                <div class="status-bar"><span class="status-text" id="mobile_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+                <div class="result-area"><div class="result-text" id="mobile_result"><i class="fas fa-terminal"></i> [SYSTEM] Ready for extraction...</div></div>
+                <div class="status-bar"><span class="status-text" id="mobile_status">● STANDBY</span><span class="status-indicator"></span></div>
             </div>
         </div>
         
@@ -587,11 +392,11 @@
                         <input type="text" id="telegram_id" placeholder="Enter Telegram ID or Username">
                     </div>
                 </div>
-                <button class="btn-primary" id="telegramBtn" onclick="searchWithCredit('telegram')">
-                    <i class="fas fa-crosshairs"></i> SEARCH (1 CREDIT)
+                <button class="btn-primary" onclick="performSearch('telegram')">
+                    <i class="fas fa-crosshairs"></i> SEARCH NOW
                 </button>
-                <div class="result-area"><div class="result-text" id="telegram_result"><i class="fas fa-info-circle"></i> Ready for tracking...</div></div>
-                <div class="status-bar"><span class="status-text" id="telegram_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+                <div class="result-area"><div class="result-text" id="telegram_result"><i class="fas fa-terminal"></i> [SYSTEM] Ready for tracking...</div></div>
+                <div class="status-bar"><span class="status-text" id="telegram_status">● STANDBY</span><span class="status-indicator"></span></div>
             </div>
         </div>
         
@@ -605,11 +410,11 @@
                         <input type="text" id="vehicle_number" placeholder="e.g., MH01AB1234" style="text-transform: uppercase">
                     </div>
                 </div>
-                <button class="btn-primary" id="vehicleBtn" onclick="searchWithCredit('vehicle')">
-                    <i class="fas fa-search"></i> SEARCH (1 CREDIT)
+                <button class="btn-primary" onclick="performSearch('vehicle')">
+                    <i class="fas fa-search"></i> SEARCH NOW
                 </button>
-                <div class="result-area"><div class="result-text" id="vehicle_result"><i class="fas fa-info-circle"></i> Ready for RTO lookup...</div></div>
-                <div class="status-bar"><span class="status-text" id="vehicle_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+                <div class="result-area"><div class="result-text" id="vehicle_result"><i class="fas fa-terminal"></i> [SYSTEM] Ready for RTO lookup...</div></div>
+                <div class="status-bar"><span class="status-text" id="vehicle_status">● STANDBY</span><span class="status-indicator"></span></div>
             </div>
         </div>
         
@@ -623,58 +428,58 @@
                         <input type="text" id="family_term" placeholder="Enter Aadhaar or Ration Card ID">
                     </div>
                 </div>
-                <button class="btn-primary" id="familyBtn" onclick="searchWithCredit('family')">
-                    <i class="fas fa-users"></i> SEARCH (1 CREDIT)
+                <button class="btn-primary" onclick="performSearch('family')">
+                    <i class="fas fa-users"></i> SEARCH NOW
                 </button>
-                <div class="result-area"><div class="result-text" id="family_result"><i class="fas fa-info-circle"></i> Ready for family lookup...</div></div>
-                <div class="status-bar"><span class="status-text" id="family_status">● SYSTEM READY</span><span class="status-indicator"></span></div>
+                <div class="result-area"><div class="result-text" id="family_result"><i class="fas fa-terminal"></i> [SYSTEM] Ready for family lookup...</div></div>
+                <div class="status-bar"><span class="status-text" id="family_status">● STANDBY</span><span class="status-indicator"></span></div>
             </div>
         </div>
         
         <!-- Instagram Tab -->
         <div id="instagram" class="tab-content">
             <div class="card">
-                <div class="card-title"><i class="fab fa-instagram"></i> INSTAGRAM ID TO NUMBER <span class="coming-soon">Coming Soon</span></div>
+                <div class="card-title"><i class="fab fa-instagram"></i> INSTAGRAM INTELLIGENCE <span class="coming-soon">SOON</span></div>
                 <div class="input-group">
                     <div class="input-wrapper">
                         <i class="fab fa-instagram"></i>
-                        <input type="text" placeholder="Enter Instagram Username" disabled style="opacity:0.6;">
+                        <input type="text" placeholder="Instagram Username" disabled style="opacity:0.5;">
                     </div>
                 </div>
-                <button class="btn-primary" style="opacity:0.6; cursor:not-allowed;" disabled>
-                    <i class="fas fa-search"></i> SEARCH (COMING SOON)
+                <button class="btn-primary" style="opacity:0.5; cursor:not-allowed;" disabled>
+                    <i class="fas fa-search"></i> COMING SOON
                 </button>
                 <div class="result-area">
                     <div class="result-text" style="color: #ff9800; text-align: center;">
-                        <i class="fas fa-tools"></i><br><br>
-                        <strong>🚧 FEATURE COMING SOON 🚧</strong><br><br>
-                        Instagram ID to Mobile Number lookup will be available soon.<br><br>
-                        <i class="fas fa-star"></i> Stay Tuned! <i class="fas fa-star"></i>
+                        <i class="fas fa-code-branch"></i><br><br>
+                        <strong>🚧 UNDER DEVELOPMENT 🚧</strong><br><br>
+                        Instagram intelligence module coming soon.<br><br>
+                        <i class="fas fa-star"></i> Stay Tuned!
                     </div>
                 </div>
                 <div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div>
             </div>
         </div>
         
-        <!-- Vehicle to Number Tab -->
+        <!-- V2N Tab -->
         <div id="v2n" class="tab-content">
             <div class="card">
-                <div class="card-title"><i class="fas fa-exchange-alt"></i> VEHICLE TO PHONE NUMBER <span class="coming-soon">Coming Soon</span></div>
+                <div class="card-title"><i class="fas fa-exchange-alt"></i> VEHICLE TO NUMBER <span class="coming-soon">SOON</span></div>
                 <div class="input-group">
                     <div class="input-wrapper">
                         <i class="fas fa-car"></i>
-                        <input type="text" placeholder="Enter Vehicle Number" disabled style="opacity:0.6;">
+                        <input type="text" placeholder="Enter Vehicle Number" disabled style="opacity:0.5;">
                     </div>
                 </div>
-                <button class="btn-primary" style="opacity:0.6; cursor:not-allowed;" disabled>
-                    <i class="fas fa-search"></i> SEARCH (COMING SOON)
+                <button class="btn-primary" style="opacity:0.5; cursor:not-allowed;" disabled>
+                    <i class="fas fa-search"></i> COMING SOON
                 </button>
                 <div class="result-area">
                     <div class="result-text" style="color: #ff9800; text-align: center;">
-                        <i class="fas fa-tools"></i><br><br>
-                        <strong>🚧 FEATURE COMING SOON 🚧</strong><br><br>
-                        Vehicle Number to Owner's Phone Number lookup will be available soon.<br><br>
-                        <i class="fas fa-star"></i> Stay Tuned! <i class="fas fa-star"></i>
+                        <i class="fas fa-code-branch"></i><br><br>
+                        <strong>🚧 UNDER DEVELOPMENT 🚧</strong><br><br>
+                        Vehicle to Phone Number lookup coming soon.<br><br>
+                        <i class="fas fa-star"></i> Stay Tuned!
                     </div>
                 </div>
                 <div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div>
@@ -682,427 +487,15 @@
         </div>
         
         <div class="footer">
-            <i class="fas fa-shield-alt"></i> EDUCATIONAL PURPOSE ONLY<br>
-            Developer: Vishal Hacker | Telegram: @Vishal_hack_99 | WhatsApp: +91 8207416237
-        </div>
-    </div>
-    
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <h2 style="color: #00ff00; margin-bottom: 15px;"><i class="fas fa-sign-in-alt"></i> LOGIN</h2>
-            <p style="color: #fff; margin-bottom: 15px;">Enter your email to save credits & searches</p>
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="loginEmail" placeholder="Enter your email address">
-                </div>
-            </div>
-            <div class="input-group">
-                <div class="input-wrapper">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="loginName" placeholder="Your name (optional)">
-                </div>
-            </div>
-            <button onclick="processLogin()" style="background: #00ff00; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; margin-top: 10px;">
-                <i class="fas fa-check-circle"></i> CONTINUE
-            </button>
-            <button class="close-modal" onclick="closeLoginModal()"><i class="fas fa-times"></i> CANCEL</button>
-        </div>
-    </div>
-    
-    <!-- Payment Modal -->
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <h2 style="color: #00ff00; margin-bottom: 15px;">💰 BUY CREDITS</h2>
-            <p style="color: #fff; margin-bottom: 5px;">1 Credit = ₹1 | 1 Search = 1 Credit</p>
-            <div class="amount-buttons">
-                <button class="amount-btn" onclick="setAmount(10)">₹10 = 10</button>
-                <button class="amount-btn" onclick="setAmount(20)">₹20 = 20</button>
-                <button class="amount-btn" onclick="setAmount(50)">₹50 = 50</button>
-                <button class="amount-btn" onclick="setAmount(100)">₹100 = 100</button>
-                <button class="amount-btn" onclick="setAmount(200)">₹200 = 200</button>
-                <button class="amount-btn" onclick="setAmount(500)">₹500 = 500</button>
-            </div>
-            <div class="qr-code">
-                <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=9931630411@ptyes&pn=Vishal%20Hacker&am=10&cu=INR" alt="QR Code">
-            </div>
-            <div class="upi-id">
-                <i class="fas fa-credit-card"></i> UPI ID: <strong>9931630411@ptyes</strong>
-                <button onclick="copyUPI()" style="background: #00ff00; border: none; padding: 5px 10px; border-radius: 5px; margin-left: 10px; cursor: pointer;">
-                    <i class="fas fa-copy"></i> Copy
-                </button>
-            </div>
-            <div class="input-group">
-                <input type="number" id="creditAmount" placeholder="Enter amount (₹)" style="text-align: center;" value="10">
-            </div>
-            <div class="input-group">
-                <input type="text" id="transactionId" placeholder="Enter Transaction ID / UTR No." style="text-align: center;">
-            </div>
-            <div class="admin-contact">
-                <i class="fab fa-whatsapp"></i> <strong>📱 AFTER PAYMENT, CONTACT ADMIN:</strong><br>
-                <a href="https://wa.me/918207416237?text=I%20want%20to%20buy%20credits" target="_blank" style="color: #25D366; font-size: 14px;">
-                    <i class="fab fa-whatsapp"></i> WhatsApp: +91 8207416237
-                </a><br>
-                <a href="https://t.me/Vishal_hack_99" target="_blank" style="color: #0088cc; font-size: 14px;">
-                    <i class="fab fa-telegram"></i> Telegram: @Vishal_hack_99
-                </a>
-            </div>
-            <div class="admin-contact" style="background: rgba(255,193,7,0.2); border: 1px solid #ffc107;">
-                <i class="fas fa-info-circle"></i> <strong>How it works:</strong><br>
-                1️⃣ Pay amount to above UPI ID<br>
-                2️⃣ Enter Transaction ID<br>
-                3️⃣ Click "SUBMIT" below<br>
-                4️⃣ Contact Admin on WhatsApp/Telegram<br>
-                5️⃣ Admin will approve & add credits
-            </div>
-            <button onclick="submitPaymentRequest()" style="background: #ff9800; border: none; padding: 12px; border-radius: 10px; width: 100%; font-weight: bold; margin-top: 10px;">
-                <i class="fas fa-paper-plane"></i> SUBMIT & CONTACT ADMIN
-            </button>
-            <button class="close-modal" onclick="closePaymentModal()"><i class="fas fa-times"></i> CLOSE</button>
+            <i class="fas fa-shield-alt"></i> EDUCATIONAL & OSINT PURPOSE ONLY<br>
+            <i class="fab fa-telegram"></i> <a href="#">@Vishal_hack_99</a> | 
+            <i class="fab fa-instagram"></i> <a href="#">vishal_459_99</a> | 
+            <i class="fab fa-whatsapp"></i> <a href="#">+91 8207416237</a>
         </div>
     </div>
     
     <script>
-        // ========== ADMIN CREDENTIALS ==========
-        const ADMIN_PASSWORD = "Vishalhack9933";
-        
-        // ========== GLOBAL STORAGE KEY (SAME FOR EVERYONE) ==========
-        // Sabhi requests ek hi jagah store hongi - "ALL_REQUESTS"
-        const ALL_REQUESTS_KEY = "VISHAL_ALL_PENDING_REQUESTS";
-        const ALL_USERS_CREDITS_KEY = "VISHAL_ALL_USERS_CREDITS";
-        
-        // ========== FUNCTIONS ==========
-        
-        // Get all pending requests (global)
-        function getAllPendingRequests() {
-            const requests = localStorage.getItem(ALL_REQUESTS_KEY);
-            return requests ? JSON.parse(requests) : [];
-        }
-        
-        // Save all pending requests (global)
-        function saveAllPendingRequests(requests) {
-            localStorage.setItem(ALL_REQUESTS_KEY, JSON.stringify(requests));
-            updateAdminBadge();
-        }
-        
-        // Get user credits from global storage
-        function getUserCredits(email) {
-            const allCredits = localStorage.getItem(ALL_USERS_CREDITS_KEY);
-            const creditsMap = allCredits ? JSON.parse(allCredits) : {};
-            return creditsMap[email] || 0;
-        }
-        
-        // Save user credits to global storage
-        function saveUserCredits(email, credits) {
-            const allCredits = localStorage.getItem(ALL_USERS_CREDITS_KEY);
-            const creditsMap = allCredits ? JSON.parse(allCredits) : {};
-            creditsMap[email] = credits;
-            localStorage.setItem(ALL_USERS_CREDITS_KEY, JSON.stringify(creditsMap));
-        }
-        
-        // Get user searches
-        function getUserSearches(email) {
-            const key = `vishalSearches_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
-            const searches = localStorage.getItem(key);
-            return searches ? parseInt(searches) : 0;
-        }
-        
-        function saveUserSearches(email, searches) {
-            const key = `vishalSearches_${email.replace(/[^a-zA-Z0-9]/g, '_')}`;
-            localStorage.setItem(key, searches);
-        }
-        
-        // Global variables
-        let currentUser = null;
-        let credits = 0;
-        let totalSearches = 0;
-        
-        function loadCurrentUserData() {
-            if (currentUser) {
-                credits = getUserCredits(currentUser.email);
-                totalSearches = getUserSearches(currentUser.email);
-                updateCreditUI();
-            }
-        }
-        
-        function updateCreditUI() {
-            document.getElementById('creditBalance').innerText = credits;
-            document.getElementById('searchCount').innerText = totalSearches;
-            const btns = ['mobileBtn', 'telegramBtn', 'vehicleBtn', 'familyBtn'];
-            btns.forEach(btnId => {
-                const btn = document.getElementById(btnId);
-                if (btn) {
-                    btn.disabled = credits <= 0;
-                    btn.style.opacity = credits <= 0 ? '0.5' : '1';
-                }
-            });
-        }
-        
-        function deductCredit() {
-            if (credits > 0 && currentUser) {
-                credits--;
-                totalSearches++;
-                saveUserCredits(currentUser.email, credits);
-                saveUserSearches(currentUser.email, totalSearches);
-                updateCreditUI();
-                return true;
-            } else if (credits <= 0 && currentUser) {
-                Swal.fire('No Credits!', 'Please buy credits to continue', 'warning').then(() => openPaymentModal());
-                return false;
-            } else if (!currentUser) {
-                Swal.fire('Please Login', 'You need to login first', 'warning').then(() => showLoginModal());
-                return false;
-            }
-            return false;
-        }
-        
-        function addCreditsToUser(email, amount) {
-            const currentCredits = getUserCredits(email);
-            const newCredits = currentCredits + amount;
-            saveUserCredits(email, newCredits);
-            
-            if (currentUser && currentUser.email === email) {
-                credits = newCredits;
-                updateCreditUI();
-            }
-        }
-        
-        // Login functions
-        function showLoginModal() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-        
-        function closeLoginModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-        
-        function processLogin() {
-            const email = document.getElementById('loginEmail').value.trim();
-            const name = document.getElementById('loginName').value.trim();
-            
-            if (!email) {
-                Swal.fire('Error', 'Please enter your email address', 'error');
-                return;
-            }
-            
-            if (!email.includes('@')) {
-                Swal.fire('Error', 'Please enter a valid email address', 'error');
-                return;
-            }
-            
-            currentUser = { 
-                email: email, 
-                displayName: name || email.split('@')[0]
-            };
-            
-            document.getElementById('userName').innerHTML = currentUser.displayName;
-            document.getElementById('userEmail').innerHTML = currentUser.email;
-            document.getElementById('loginBtn').style.display = 'none';
-            document.getElementById('logoutBtn').style.display = 'block';
-            
-            loadCurrentUserData();
-            closeLoginModal();
-            Swal.fire('Welcome!', `Logged in as ${currentUser.email}`, 'success');
-        }
-        
-        function logoutUser() {
-            currentUser = null;
-            credits = 0;
-            totalSearches = 0;
-            updateCreditUI();
-            document.getElementById('userName').innerHTML = 'Guest User';
-            document.getElementById('userEmail').innerHTML = 'Not logged in';
-            document.getElementById('loginBtn').style.display = 'block';
-            document.getElementById('logoutBtn').style.display = 'none';
-            Swal.fire('Logged Out', 'You have been logged out', 'info');
-        }
-        
-        // Payment functions
-        function setAmount(amount) {
-            document.getElementById('creditAmount').value = amount;
-            updateQRCode(amount);
-        }
-        
-        function updateQRCode(amount) {
-            const upi = '9931630411@ptyes';
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${upi}&pn=Vishal%20Hacker&am=${amount}&cu=INR`;
-            document.getElementById('qrImage').src = qrUrl;
-        }
-        
-        function submitPaymentRequest() {
-            if (!currentUser) {
-                Swal.fire('Please Login', 'You need to login first to buy credits', 'warning').then(() => showLoginModal());
-                return;
-            }
-            
-            let amount = parseInt(document.getElementById('creditAmount').value);
-            let transactionId = document.getElementById('transactionId').value.trim();
-            
-            if (!amount || amount < 1) {
-                Swal.fire('Error', 'Please enter valid amount (minimum ₹1)', 'error');
-                return;
-            }
-            if (!transactionId) {
-                Swal.fire('Error', 'Please enter Transaction ID / UTR Number', 'error');
-                return;
-            }
-            
-            // Check if transaction ID already used
-            const allRequests = getAllPendingRequests();
-            const existing = allRequests.find(r => r.transactionId === transactionId);
-            if (existing) {
-                Swal.fire('Error', 'This Transaction ID already exists!', 'error');
-                return;
-            }
-            
-            const request = { 
-                transactionId, 
-                amount, 
-                credits: amount, 
-                userEmail: currentUser.email,
-                userName: currentUser.displayName,
-                timestamp: new Date().toISOString(), 
-                status: 'pending' 
-            };
-            
-            allRequests.push(request);
-            saveAllPendingRequests(allRequests);
-            
-            // Generate WhatsApp message
-            const whatsappMsg = `Hi Admin!%0A%0A💰 NEW PAYMENT REQUEST%0A📝 Transaction ID: ${transactionId}%0A💵 Amount: ₹${amount}%0A👤 User: ${currentUser.email}%0A⭐ Credits: ${amount}%0A%0APlease approve my credits.`;
-            
-            Swal.fire({
-                title: '✅ Request Submitted!',
-                html: `<strong>💰 Amount:</strong> ₹${amount}<br>
-                       <strong>⭐ Credits:</strong> ${amount}<br>
-                       <strong>🆔 Transaction ID:</strong> ${transactionId}<br>
-                       <strong>👤 User:</strong> ${currentUser.email}<br><br>
-                       <strong>📱 CLICK BELOW TO CONTACT ADMIN:</strong><br><br>
-                       <a href="https://wa.me/918207416237?text=${whatsappMsg}" target="_blank" style="background:#25D366; display:inline-block; padding:10px 20px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
-                           <i class="fab fa-whatsapp"></i> WhatsApp Admin
-                       </a><br>
-                       <a href="https://t.me/Vishal_hack_99" target="_blank" style="background:#0088cc; display:inline-block; padding:10px 20px; border-radius:10px; color:white; text-decoration:none; margin:5px;">
-                           <i class="fab fa-telegram"></i> Telegram Admin
-                       </a>`,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-            
-            document.getElementById('transactionId').value = '';
-            closePaymentModal();
-        }
-        
-        function updateAdminBadge() {
-            const pendingCount = getAllPendingRequests().length;
-            const badge = document.getElementById('pendingBadge');
-            if (pendingCount > 0) {
-                badge.style.display = 'inline-block';
-                badge.innerText = pendingCount;
-            } else {
-                badge.style.display = 'none';
-            }
-        }
-        
-        // ADMIN FUNCTIONS
-        function openAdminLogin() {
-            Swal.fire({
-                title: '🔐 ADMIN LOGIN',
-                html: '<input type="password" id="adminPassword" class="swal2-input" placeholder="Enter admin password">',
-                showCancelButton: true,
-                confirmButtonText: 'Login',
-                preConfirm: () => document.getElementById('adminPassword').value
-            }).then((result) => {
-                if (result.isConfirmed && result.value === ADMIN_PASSWORD) {
-                    showAdminPanel();
-                } else if (result.isConfirmed) {
-                    Swal.fire('Access Denied!', 'Incorrect admin password', 'error');
-                }
-            });
-        }
-        
-        function showAdminPanel() {
-            let pending = getAllPendingRequests();
-            
-            if (pending.length === 0) {
-                Swal.fire('No Pending Requests', 'All payment requests have been processed', 'info');
-                return;
-            }
-            
-            let html = `<div class="admin-panel-container">
-                <h2 style="color:#00ff00;text-align:center;">🔐 PENDING REQUESTS</h2>
-                <p style="text-align:center;font-size:12px;margin-bottom:10px;">
-                    Total: ${pending.length} requests | 
-                    <button class="refresh-btn" onclick="location.reload()">🔄 Refresh</button>
-                </p>`;
-            
-            pending.forEach((req, i) => {
-                const date = new Date(req.timestamp);
-                html += `<div class="request-item" id="req_${i}">
-                    <small>#${i+1}</small><br>
-                    <strong style="color:#00ff00;">🔖 TXN ID:</strong> ${req.transactionId}<br>
-                    <strong>💰 Amount:</strong> ₹${req.amount}<br>
-                    <strong>⭐ Credits:</strong> ${req.credits}<br>
-                    <strong>👤 User:</strong> ${req.userEmail}<br>
-                    <strong>🕐 Time:</strong> ${date.toLocaleString()}<br>
-                    <button class="approve-btn" onclick="approvePayment('${req.transactionId}', ${req.amount}, '${req.userEmail}')">✅ APPROVE & ADD CREDITS</button>
-                    <button class="approve-btn" onclick="rejectPayment('${req.transactionId}')" style="background:#ff4444; color:white;">❌ REJECT</button>
-                </div>`;
-            });
-            
-            html += '<button class="close-modal" onclick="Swal.close()" style="margin-top:10px;">Close</button></div>';
-            
-            Swal.fire({
-                title: '',
-                html: html,
-                showConfirmButton: false,
-                showCloseButton: true,
-                width: '500px'
-            });
-        }
-        
-        function approvePayment(transactionId, amount, userEmail) {
-            Swal.fire({
-                title: 'Confirm Approval',
-                text: `Add ${amount} credits to ${userEmail}?`,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Approve'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Add credits to user
-                    addCreditsToUser(userEmail, amount);
-                    
-                    // Remove from pending requests
-                    let pending = getAllPendingRequests();
-                    pending = pending.filter(req => req.transactionId !== transactionId);
-                    saveAllPendingRequests(pending);
-                    
-                    Swal.fire('Approved!', `${amount} credits added to ${userEmail}`, 'success');
-                    setTimeout(() => showAdminPanel(), 100);
-                }
-            });
-        }
-        
-        function rejectPayment(transactionId) {
-            Swal.fire({
-                title: 'Confirm Rejection',
-                text: 'Are you sure you want to reject this payment request?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, Reject'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    let pending = getAllPendingRequests();
-                    pending = pending.filter(req => req.transactionId !== transactionId);
-                    saveAllPendingRequests(pending);
-                    Swal.fire('Rejected!', 'Payment request has been rejected', 'info');
-                    setTimeout(() => showAdminPanel(), 100);
-                }
-            });
-        }
-        
-        // API Functions
+        // ============ API ENDPOINTS ============
         const API_URLS = {
             mobile: 'https://ayaanmods.site/number.php?key=annonymous&number=',
             telegram: 'https://ayaanmods.site/tg2num.php?key=annonymoustgtonum&id=',
@@ -1110,13 +503,19 @@
             family: 'https://ayaanmods.site/family.php?key=annonymousfamily&term='
         };
         
-        const PROXIES = ['https://corsproxy.io/?', 'https://api.allorigins.win/raw?url=', 'https://cors-anywhere.herokuapp.com/'];
+        const PROXIES = [
+            'https://corsproxy.io/?',
+            'https://api.allorigins.win/raw?url=',
+            'https://cors-anywhere.herokuapp.com/'
+        ];
         
+        // ============ API CALL ============
         async function fetchAPI(url) {
             try {
                 const response = await fetch(url);
                 if (response.ok) return await response.json();
             } catch(e) {}
+            
             for (const proxy of PROXIES) {
                 try {
                     const response = await fetch(proxy + encodeURIComponent(url));
@@ -1129,64 +528,43 @@
             throw new Error('Connection failed');
         }
         
-        async function searchWithCredit(type) {
-            if (!currentUser) {
-                Swal.fire('Please Login', 'You need to login first', 'warning').then(() => showLoginModal());
-                return;
-            }
-            if (credits <= 0) {
-                Swal.fire('No Credits!', 'Please buy credits. 1 Credit = ₹1', 'warning').then(() => openPaymentModal());
-                return;
-            }
-            
+        // ============ SEARCH FUNCTION ============
+        async function performSearch(type) {
             let value = '';
             switch(type) {
                 case 'mobile':
                     value = document.getElementById('mobile_number').value.trim();
                     if (!value || value.length !== 10 || !/^\d+$/.test(value)) {
-                        Swal.fire('Error', 'Please enter valid 10-digit mobile number', 'error');
+                        Swal.fire('Invalid Input', 'Please enter valid 10-digit mobile number', 'error');
                         return;
                     }
                     break;
                 case 'telegram':
                     value = document.getElementById('telegram_id').value.trim();
                     if (!value) {
-                        Swal.fire('Error', 'Please enter Telegram ID', 'error');
+                        Swal.fire('Invalid Input', 'Please enter Telegram ID', 'error');
                         return;
                     }
                     break;
                 case 'vehicle':
                     value = document.getElementById('vehicle_number').value.trim().toUpperCase();
                     if (!value) {
-                        Swal.fire('Error', 'Please enter vehicle number', 'error');
+                        Swal.fire('Invalid Input', 'Please enter vehicle number', 'error');
                         return;
                     }
                     break;
                 case 'family':
                     value = document.getElementById('family_term').value.trim();
                     if (!value) {
-                        Swal.fire('Error', 'Please enter Aadhaar or RC ID', 'error');
+                        Swal.fire('Invalid Input', 'Please enter Aadhaar or RC ID', 'error');
                         return;
                     }
                     break;
             }
             
-            const confirm = await Swal.fire({
-                title: 'Confirm Search',
-                text: `Use 1 credit? Balance: ${credits} credits`,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Yes'
-            });
+            updateStatus(type, 'PROCESSING...');
+            updateResult(type, '🔍 Connecting to servers...', true);
             
-            if (confirm.isConfirmed && deductCredit()) {
-                performSearch(type, value);
-            }
-        }
-        
-        async function performSearch(type, value) {
-            updateStatus(type, 'SEARCHING...');
-            updateResult(type, '🔍 Processing...', true);
             try {
                 let url, data;
                 switch(type) {
@@ -1212,138 +590,143 @@
                         break;
                 }
             } catch (error) {
-                updateResult(type, `❌ Error: ${error.message}`, false);
+                updateResult(type, `❌ ERROR: ${error.message}\n\n[!] Please check connection and try again.`, false);
                 updateStatus(type, 'FAILED', true);
             }
         }
         
+        // ============ DISPLAY RESULTS ============
         function displayMobileResult(data, number) {
             if (data.error || !data.result || data.result.length === 0) {
-                updateResult('mobile', '❌ No data found', false);
+                updateResult('mobile', '❌ No data found for this number.\n\n[!] The number might not be in our database.', false);
                 updateStatus('mobile', 'NOT FOUND', true);
                 return;
             }
+            
             const r = data.result[0];
-            let html = `<strong>✅ MOBILE INTELLIGENCE</strong><br><hr>
-                <strong>📱 Number:</strong> ${number}<br>
-                <strong>👤 Name:</strong> ${r.name || 'N/A'}<br>
-                <strong>👨 Father:</strong> ${r.father_name || 'N/A'}<br>
-                <strong>📞 Alternate:</strong> ${r.alternate || 'N/A'}<br>
-                <strong>📧 Email:</strong> ${r.email || 'N/A'}<br>
-                <strong>🏠 Address:</strong> ${r.address || 'N/A'}<br>
-                <strong>📍 Circle:</strong> ${r.circle || 'N/A'}<br>
-                <strong>🆔 Customer ID:</strong> ${r.id || r.customer_id || 'N/A'}<br>
-                <hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            let html = `╔════════════════════════════════════════╗\n`;
+            html += `║     ✅ MOBILE INTELLIGENCE REPORT        ║\n`;
+            html += `╚════════════════════════════════════════╝\n\n`;
+            html += `📱 NUMBER       : ${number}\n`;
+            html += `👤 NAME         : ${r.name || 'N/A'}\n`;
+            html += `👨 FATHER NAME  : ${r.father_name || 'N/A'}\n`;
+            html += `📞 ALTERNATE    : ${r.alternate || 'N/A'}\n`;
+            html += `📧 EMAIL        : ${r.email || 'N/A'}\n`;
+            html += `🏠 ADDRESS      : ${r.address || 'N/A'}\n`;
+            html += `📍 CIRCLE       : ${r.circle || 'N/A'}\n`;
+            html += `🆔 CUSTOMER ID  : ${r.id || r.customer_id || 'N/A'}\n`;
+            html += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            html += `[✓] Data extracted successfully`;
+            
             updateResult('mobile', html, false);
             updateStatus('mobile', 'COMPLETED');
         }
         
         function displayTelegramResult(data, tgId) {
             if (data.error || !data.success) {
-                updateResult('telegram', '❌ No data found', false);
+                updateResult('telegram', '❌ No data found for this Telegram ID.\n\n[!] Username may be invalid or not indexed.', false);
                 updateStatus('telegram', 'NOT FOUND', true);
                 return;
             }
+            
             const r = data.result || {};
-            let html = `<strong>✅ TELEGRAM INTELLIGENCE</strong><br><hr>
-                <strong>📌 ID:</strong> ${tgId}<br>
-                <strong>🔔 User ID:</strong> ${r.tg_id || 'N/A'}<br>
-                <strong>🌍 Country:</strong> ${r.country || 'N/A'}<br>
-                <strong>📞 Code:</strong> ${r.country_code || 'N/A'}<br>
-                <strong>📱 Mobile:</strong> ${r.number || 'N/A'}<br>
-                <hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            let html = `╔════════════════════════════════════════╗\n`;
+            html += `║    ✅ TELEGRAM INTELLIGENCE REPORT       ║\n`;
+            html += `╚════════════════════════════════════════╝\n\n`;
+            html += `📌 USERNAME     : ${tgId}\n`;
+            html += `🔔 USER ID      : ${r.tg_id || 'N/A'}\n`;
+            html += `🌍 COUNTRY      : ${r.country || 'N/A'}\n`;
+            html += `📞 COUNTRY CODE : ${r.country_code || 'N/A'}\n`;
+            html += `📱 MOBILE       : ${r.number || 'N/A'}\n`;
+            html += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            html += `[✓] User tracked successfully`;
+            
             updateResult('telegram', html, false);
             updateStatus('telegram', 'COMPLETED');
         }
         
         function displayVehicleResult(data, rc) {
             if (data.error) {
-                updateResult('vehicle', '❌ No data found', false);
+                updateResult('vehicle', '❌ No vehicle records found.\n\n[!] Please check the registration number.', false);
                 updateStatus('vehicle', 'NOT FOUND', true);
                 return;
             }
-            let html = `<strong>✅ VEHICLE INTELLIGENCE</strong><br><hr><strong>🚗 Number:</strong> ${rc}<br>`;
+            
+            let html = `╔════════════════════════════════════════╗\n`;
+            html += `║    ✅ VEHICLE INTELLIGENCE REPORT        ║\n`;
+            html += `╚════════════════════════════════════════╝\n\n`;
+            html += `🚗 REG NUMBER   : ${rc}\n`;
+            
             for (let key in data) {
                 if (key !== '_response_time_ms' && key !== '_developer' && data[key]) {
-                    html += `<strong>${key.replace(/_/g, ' ').toUpperCase()}:</strong> ${data[key]}<br>`;
+                    let label = key.replace(/_/g, ' ').toUpperCase();
+                    html += `${label.padEnd(14)}: ${data[key]}\n`;
                 }
             }
-            html += `<hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
+            
+            html += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            html += `[✓] Vehicle data retrieved`;
+            
             updateResult('vehicle', html, false);
             updateStatus('vehicle', 'COMPLETED');
         }
         
         function displayFamilyResult(data, term) {
-            if (!data) {
-                updateResult('family', '❌ No response from server', false);
-                updateStatus('family', 'SERVER ERROR', true);
-                return;
-            }
-            if (data.error) {
-                updateResult('family', `❌ ${data.error}`, false);
-                updateStatus('family', 'ERROR', true);
-                return;
-            }
-            if (!data.result && !data.data && !data.success) {
-                updateResult('family', '❌ No family data found for this ID\n\n⚠️ Please check the ID and try again.', false);
+            if (!data || data.error) {
+                updateResult('family', '❌ No family records found.\n\n[!] ID may be invalid or not indexed.', false);
                 updateStatus('family', 'NOT FOUND', true);
                 return;
             }
-            
-            let html = `<strong>✅ FAMILY INTELLIGENCE</strong><br><hr>`;
-            html += `<strong>🔍 QUERY ID:</strong> ${term}<br><br>`;
             
             let result = data.result || data.data || {};
             if (result.results && result.results.length > 0) {
                 result = result.results[0];
             }
             
+            let html = `╔════════════════════════════════════════╗\n`;
+            html += `║     ✅ FAMILY INTELLIGENCE REPORT        ║\n`;
+            html += `╚════════════════════════════════════════╝\n\n`;
+            html += `🔍 QUERY ID     : ${term}\n\n`;
+            
             const rcDetails = result.ration_card_details || result.rationCardDetails || {};
             if (Object.keys(rcDetails).length > 0) {
-                html += `<strong>📋 RATION CARD DETAILS:</strong><br>`;
-                html += `   🏛️ State: ${rcDetails.state_name || rcDetails.state || 'N/A'}<br>`;
-                html += `   🏙️ District: ${rcDetails.district_name || rcDetails.district || 'N/A'}<br>`;
-                html += `   🆔 Card No: ${rcDetails.ration_card_no || rcDetails.cardNo || 'N/A'}<br>`;
-                html += `   📜 Scheme: ${rcDetails.scheme_name || rcDetails.scheme || 'N/A'}<br><br>`;
+                html += `📋 RATION CARD DETAILS\n`;
+                html += `   🏛️ STATE     : ${rcDetails.state_name || rcDetails.state || 'N/A'}\n`;
+                html += `   🏙️ DISTRICT  : ${rcDetails.district_name || rcDetails.district || 'N/A'}\n`;
+                html += `   🆔 CARD NO   : ${rcDetails.ration_card_no || rcDetails.cardNo || 'N/A'}\n\n`;
             }
             
             let members = result.members || result.familyMembers || [];
             if (members.length > 0) {
-                html += `<strong>👨‍👩‍👧‍👦 FAMILY MEMBERS (${members.length}):</strong><br>`;
+                html += `👨‍👩‍👧‍👦 FAMILY MEMBERS [${members.length}]\n`;
                 members.forEach((m, i) => {
-                    html += `<br>${i+1}. <strong>${m.member_name || m.name || 'N/A'}</strong><br>`;
-                    html += `   🆔 ID: ${m.member_id || m.id || 'N/A'}<br>`;
-                    if (m.relation || m.relationship) html += `   👥 Relation: ${m.relation || m.relationship}<br>`;
-                    if (m.age) html += `   📅 Age: ${m.age}<br>`;
+                    html += `\n   ${i+1}. ${m.member_name || m.name || 'N/A'}\n`;
+                    if (m.relation || m.relationship) html += `      RELATION: ${m.relation || m.relationship}\n`;
+                    if (m.age) html += `      AGE: ${m.age}\n`;
                 });
             } else if (result.pd && result.pd.memberDetailsList) {
                 members = result.pd.memberDetailsList;
                 if (members.length > 0) {
-                    html += `<strong>👨‍👩‍👧‍👦 FAMILY MEMBERS (${members.length}):</strong><br>`;
+                    html += `👨‍👩‍👧‍👦 FAMILY MEMBERS [${members.length}]\n`;
                     members.forEach((m, i) => {
-                        html += `<br>${i+1}. <strong>${m.memberName || 'N/A'}</strong><br>`;
-                        html += `   🆔 ID: ${m.memberId || 'N/A'}<br>`;
-                        if (m.releationship_name) html += `   👥 Relation: ${m.releationship_name}<br>`;
+                        html += `\n   ${i+1}. ${m.memberName || 'N/A'}\n`;
+                        if (m.releationship_name) html += `      RELATION: ${m.releationship_name}\n`;
                     });
                 } else {
-                    html += `<br><strong>⚠️ No family members found in database</strong><br>`;
+                    html += `⚠️ No family members found\n`;
                 }
             } else {
-                html += `<br><strong>⚠️ No family members found in database</strong><br>`;
+                html += `⚠️ No family members found in database\n`;
             }
             
-            const addInfo = result.additional_info || result.additionalInfo || {};
-            if (Object.keys(addInfo).length > 0) {
-                html += `<br><strong>ℹ️ ADDITIONAL INFORMATION:</strong><br>`;
-                html += `   🏪 FPS Category: ${addInfo.fps_category || addInfo.fpsCategory || 'N/A'}<br>`;
-                html += `   🔄 IMPDS Allowed: ${addInfo.impds_transaction_allowed || addInfo.impdsAllowed || 'N/A'}<br>`;
-            }
+            html += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            html += `[✓] Family data retrieved`;
             
-            html += `<hr><strong>👨‍💻 Developer:</strong> Vishal Hacker`;
             updateResult('family', html, false);
             updateStatus('family', members.length > 0 ? `${members.length} MEMBERS FOUND` : 'ID FOUND');
         }
         
+        // ============ UI HELPERS ============
         function updateStatus(tab, message, isError = false) {
             const span = document.getElementById(`${tab}_status`);
             if (span) {
@@ -1358,7 +741,7 @@
                 if (isLoading) {
                     div.innerHTML = `<div class="loading-spinner"><i class="fas fa-spinner"></i><br><span>${content}</span></div>`;
                 } else {
-                    div.innerHTML = content;
+                    div.innerHTML = `<div class="result-text">${content.replace(/\n/g, '<br>')}</div>`;
                 }
             }
         }
@@ -1370,31 +753,16 @@
             event.target.classList.add('active');
         }
         
-        function openPaymentModal() {
-            if (!currentUser) {
-                Swal.fire('Please Login', 'You need to login first to buy credits', 'warning').then(() => showLoginModal());
-                return;
+        // Enter key support
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const activeTab = document.querySelector('.tab-content.active').id;
+                if (activeTab === 'mobile') performSearch('mobile');
+                else if (activeTab === 'telegram') performSearch('telegram');
+                else if (activeTab === 'vehicle') performSearch('vehicle');
+                else if (activeTab === 'family') performSearch('family');
             }
-            document.getElementById('paymentModal').style.display = 'flex';
-            updateQRCode(document.getElementById('creditAmount')?.value || '10');
-        }
-        
-        function closePaymentModal() {
-            document.getElementById('paymentModal').style.display = 'none';
-        }
-        
-        function copyUPI() {
-            navigator.clipboard.writeText('9931630411@ptyes');
-            Swal.fire('Copied!', 'UPI ID copied to clipboard', 'success');
-        }
-        
-        // Initialize
-        updateAdminBadge();
-        
-        window.onclick = (event) => {
-            if (event.target === document.getElementById('paymentModal')) closePaymentModal();
-            if (event.target === document.getElementById('loginModal')) closeLoginModal();
-        }
+        });
     </script>
 </body>
 </html>
