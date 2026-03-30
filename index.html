@@ -9,36 +9,34 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Poppins','Orbitron',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;overflow-x:hidden}
-        .container{max-width:550px;margin:0 auto;padding:20px 16px 30px;position:relative;z-index:1}
+        body{font-family:'Poppins','Orbitron',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh}
+        .container{max-width:550px;margin:0 auto;padding:20px 16px 30px}
         .header{text-align:center;margin-bottom:25px}
         .logo{width:70px;height:70px;background:linear-gradient(135deg,#0f0,#0c6);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;box-shadow:0 0 30px rgba(0,255,0,.3)}
         .logo i{font-size:35px;color:#0a0e27}
-        .glow-text{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;background:linear-gradient(135deg,#0f0,#0c6,#0f9);-webkit-background-clip:text;background-clip:text;color:transparent;animation:pulse 2s ease-in-out infinite}
+        .glow-text{font-family:'Orbitron',monospace;font-size:24px;font-weight:900;background:linear-gradient(135deg,#0f0,#0c6,#0f9);-webkit-background-clip:text;background-clip:text;color:transparent;animation:pulse 2s infinite}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.95}}
-        .subtitle{color:#888;font-size:10px;margin-top:5px;letter-spacing:2px}
+        .subtitle{color:#888;font-size:10px;margin-top:5px}
         .badge{display:inline-block;background:rgba(0,255,0,.1);border:1px solid #0f0;border-radius:20px;padding:4px 12px;font-size:9px;color:#0f0;margin-top:10px}
         .stats-row{display:flex;gap:12px;margin-bottom:25px}
         .stat-card{flex:1;background:rgba(10,20,30,.6);backdrop-filter:blur(10px);border-radius:16px;padding:12px 8px;text-align:center;border:1px solid rgba(0,255,0,.15)}
         .stat-card i{font-size:22px;color:#0f0;margin-bottom:6px;display:block}
         .stat-card .stat-value{font-size:18px;font-weight:bold;color:#fff;font-family:'Orbitron',monospace}
-        .stat-card .stat-label{font-size:8px;color:#888;text-transform:uppercase;letter-spacing:1px}
+        .stat-card .stat-label{font-size:8px;color:#888;text-transform:uppercase}
         .tabs{display:flex;gap:8px;margin-bottom:20px;background:rgba(0,0,0,.3);padding:6px;border-radius:20px;flex-wrap:wrap}
-        .tab-btn{flex:1;padding:12px 6px;background:0 0;border:none;color:#aaa;font-weight:600;font-size:11px;cursor:pointer;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:6px;transition:.3s}
-        .tab-btn i{font-size:13px}
+        .tab-btn{flex:1;padding:12px 6px;background:0 0;border:none;color:#aaa;font-weight:600;font-size:11px;cursor:pointer;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:6px}
         .tab-btn.active{background:linear-gradient(135deg,#0f0,#0c6);color:#0a0e27;box-shadow:0 4px 15px rgba(0,255,0,.3)}
         .tab-content{display:none;animation:fadeInUp .4s ease}
         .tab-content.active{display:block}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .card{background:rgba(15,25,35,.7);backdrop-filter:blur(15px);border-radius:20px;padding:20px;border:1px solid rgba(0,255,0,.2);margin-bottom:20px}
-        .card-title{font-size:14px;color:#0f0;margin-bottom:15px;display:flex;align-items:center;gap:8px;font-weight:600;border-bottom:1px solid rgba(0,255,0,.2);padding-bottom:10px}
+        .card-title{font-size:14px;color:#0f0;margin-bottom:15px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(0,255,0,.2);padding-bottom:10px}
         .input-group{margin-bottom:18px}
         .input-wrapper{position:relative;display:flex;align-items:center}
-        .input-wrapper i{position:absolute;left:15px;color:#0f0;font-size:14px}
-        input{width:100%;padding:14px 15px 14px 45px;background:rgba(0,0,0,.5);border:1px solid rgba(0,255,0,.3);border-radius:12px;color:#fff;font-size:14px}
-        input:focus{outline:none;border-color:#0f0;box-shadow:0 0 10px rgba(0,255,0,.2)}
-        .btn-primary{width:100%;padding:14px;background:linear-gradient(135deg,#0f0,#0c6);border:none;border-radius:12px;color:#0a0e27;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:15px}
-        .btn-primary:active{transform:scale(.98)}
+        .input-wrapper i{position:absolute;left:15px;color:#0f0}
+        input{width:100%;padding:14px 15px 14px 45px;background:rgba(0,0,0,.5);border:1px solid rgba(0,255,0,.3);border-radius:12px;color:#fff}
+        input:focus{outline:none;border-color:#0f0}
+        .btn-primary{width:100%;padding:14px;background:linear-gradient(135deg,#0f0,#0c6);border:none;border-radius:12px;color:#0a0e27;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:15px}
         .result-area{background:rgba(0,0,0,.6);border-radius:12px;padding:15px;max-height:380px;overflow-y:auto;border:1px solid rgba(0,255,0,.2)}
         .result-text{font-family:'Courier New',monospace;font-size:12px;line-height:1.6;color:#0f0;white-space:pre-wrap}
         .status-bar{display:flex;align-items:center;justify-content:space-between;margin-top:15px;padding:10px;background:rgba(0,0,0,.4);border-radius:10px}
@@ -51,107 +49,95 @@
         .footer{text-align:center;margin-top:20px;padding:15px;background:rgba(0,0,0,.4);border-radius:15px;font-size:9px;color:#666}
         .footer a{color:#0f0;text-decoration:none}
         .coming-soon{background:linear-gradient(135deg,#ff9800,#ff5722);color:#fff;font-size:9px;padding:2px 8px;border-radius:20px;margin-left:8px;display:inline-block}
-        @media(max-width:480px){.glow-text{font-size:20px}.tab-btn{font-size:9px;padding:10px 4px}.tab-btn i{font-size:11px}.card{padding:16px}}
-        .result-area::-webkit-scrollbar{width:4px}.result-area::-webkit-scrollbar-track{background:rgba(0,0,0,.3);border-radius:10px}.result-area::-webkit-scrollbar-thumb{background:#0f0;border-radius:10px}
+        @media(max-width:480px){.glow-text{font-size:20px}.tab-btn{font-size:9px;padding:10px 4px}}
     </style>
 </head>
 <body>
 <div class="container">
 <div class="header"><div class="logo"><i class="fas fa-skull"></i></div><h1 class="glow-text">VISHALHACK OSINT PRO</h1><div class="subtitle">ELITE INTELLIGENCE SUITE</div><div class="badge"><i class="fas fa-shield-alt"></i> OSINT | SECURE | FAST</div></div>
 <div class="stats-row"><div class="stat-card"><i class="fas fa-database"></i><div class="stat-value">4</div><div class="stat-label">ACTIVE APIS</div></div><div class="stat-card"><i class="fas fa-bolt"></i><div class="stat-value">&lt;1s</div><div class="stat-label">RESPONSE</div></div><div class="stat-card"><i class="fas fa-globe"></i><div class="stat-value">PRO</div><div class="stat-label">ACCESS</div></div></div>
-<div class="tabs"><button class="tab-btn active" onclick="switchTab('mobileTab')"><i class="fas fa-mobile-alt"></i> MOBILE</button><button class="tab-btn" onclick="switchTab('telegramTab')"><i class="fab fa-telegram"></i> TELEGRAM</button><button class="tab-btn" onclick="switchTab('vehicleTab')"><i class="fas fa-car"></i> VEHICLE</button><button class="tab-btn" onclick="switchTab('familyTab')"><i class="fas fa-users"></i> FAMILY</button><button class="tab-btn" onclick="switchTab('instagramTab')"><i class="fab fa-instagram"></i> INSTA</button><button class="tab-btn" onclick="switchTab('v2nTab')"><i class="fas fa-exchange-alt"></i> V2N</button></div>
+<div class="tabs"><button class="tab-btn active" onclick="switchTab('mobileTab')"><i class="fas fa-mobile-alt"></i> MOBILE</button><button class="tab-btn" onclick="switchTab('telegramTab')"><i class="fab fa-telegram"></i> TELEGRAM</button><button class="tab-btn" onclick="switchTab('vehicleTab')"><i class="fas fa-car"></i> VEHICLE</button><button class="tab-btn" onclick="switchTab('familyTab')"><i class="fas fa-users"></i> FAMILY</button><button class="tab-btn" onclick="switchTab('instagramTab')"><i class="fab fa-instagram"></i> INSTA TO NUM</button><button class="tab-btn" onclick="switchTab('v2nTab')"><i class="fas fa-exchange-alt"></i> V2N</button></div>
 <div id="mobileTab" class="tab-content active"><div class="card"><div class="card-title"><i class="fas fa-phone-alt"></i> MOBILE NUMBER INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fas fa-mobile-alt"></i><input type="tel" id="mobileInput" placeholder="Enter 10-digit mobile number" maxlength="10"></div></div><button class="btn-primary" onclick="searchMobile()"><i class="fas fa-search"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="mobileResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for extraction...</div></div><div class="status-bar"><span class="status-text" id="mobileStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
 <div id="telegramTab" class="tab-content"><div class="card"><div class="card-title"><i class="fab fa-telegram"></i> TELEGRAM ID INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fab fa-telegram"></i><input type="text" id="telegramInput" placeholder="Enter Telegram ID or Username"></div></div><button class="btn-primary" onclick="searchTelegram()"><i class="fas fa-crosshairs"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="telegramResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for tracking...</div></div><div class="status-bar"><span class="status-text" id="telegramStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
 <div id="vehicleTab" class="tab-content"><div class="card"><div class="card-title"><i class="fas fa-car"></i> VEHICLE REGISTRATION INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fas fa-car"></i><input type="text" id="vehicleInput" placeholder="e.g., MH01AB1234" style="text-transform:uppercase"></div></div><button class="btn-primary" onclick="searchVehicle()"><i class="fas fa-search"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="vehicleResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for RTO lookup...</div></div><div class="status-bar"><span class="status-text" id="vehicleStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
 <div id="familyTab" class="tab-content"><div class="card"><div class="card-title"><i class="fas fa-home"></i> FAMILY & RATION CARD INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fas fa-id-card"></i><input type="text" id="familyInput" placeholder="Enter Aadhaar or Ration Card ID"></div></div><button class="btn-primary" onclick="searchFamily()"><i class="fas fa-users"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="familyResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for family lookup...</div></div><div class="status-bar"><span class="status-text" id="familyStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
-<div id="instagramTab" class="tab-content"><div class="card"><div class="card-title"><i class="fab fa-instagram"></i> INSTAGRAM INTELLIGENCE <span class="coming-soon">SOON</span></div><div class="input-group"><div class="input-wrapper"><i class="fab fa-instagram"></i><input type="text" placeholder="Instagram Username" disabled style="opacity:.5"></div></div><button class="btn-primary" style="opacity:.5;cursor:not-allowed" disabled><i class="fas fa-search"></i> COMING SOON</button><div class="result-area"><div class="result-text" style="color:#ff9800;text-align:center"><i class="fas fa-code-branch"></i><br><br><strong>🚧 UNDER DEVELOPMENT 🚧</strong><br><br>Instagram intelligence module coming soon.<br><br><i class="fas fa-star"></i> Stay Tuned!</div></div><div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div></div></div>
-<div id="v2nTab" class="tab-content"><div class="card"><div class="card-title"><i class="fas fa-exchange-alt"></i> VEHICLE TO NUMBER <span class="coming-soon">SOON</span></div><div class="input-group"><div class="input-wrapper"><i class="fas fa-car"></i><input type="text" placeholder="Enter Vehicle Number" disabled style="opacity:.5"></div></div><button class="btn-primary" style="opacity:.5;cursor:not-allowed" disabled><i class="fas fa-search"></i> COMING SOON</button><div class="result-area"><div class="result-text" style="color:#ff9800;text-align:center"><i class="fas fa-code-branch"></i><br><br><strong>🚧 UNDER DEVELOPMENT 🚧</strong><br><br>Vehicle to Phone Number lookup coming soon.<br><br><i class="fas fa-star"></i> Stay Tuned!</div></div><div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div></div></div>
-<div class="footer"><i class="fas fa-shield-alt"></i> EDUCATIONAL & OSINT PURPOSE ONLY<br><i class="fab fa-telegram"></i> <a href="#">@Vishal_hack_99</a> | <i class="fab fa-instagram"></i> <a href="#">vishal_459_99</a> | <i class="fab fa-whatsapp"></i> <a href="#">+91 8207416237</a></div></div>
+<div id="instagramTab" class="tab-content"><div class="card"><div class="card-title"><i class="fab fa-instagram"></i> INSTAGRAM TO NUMBER <span class="coming-soon">SOON</span></div><div class="input-group"><div class="input-wrapper"><i class="fab fa-instagram"></i><input type="text" placeholder="Instagram Username" disabled style="opacity:.5"></div></div><button class="btn-primary" style="opacity:.5;cursor:not-allowed" disabled><i class="fas fa-search"></i> COMING SOON</button><div class="result-area"><div class="result-text" style="color:#ff9800;text-align:center"><i class="fas fa-code-branch"></i><br><br><strong>🚧 FEATURE COMING SOON 🚧</strong><br><br>Instagram ID to Mobile Number lookup will be available soon.<br><br><i class="fas fa-star"></i> Stay Tuned!</div></div><div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div></div></div>
+<div id="v2nTab" class="tab-content"><div class="card"><div class="card-title"><i class="fas fa-exchange-alt"></i> VEHICLE TO NUMBER <span class="coming-soon">SOON</span></div><div class="input-group"><div class="input-wrapper"><i class="fas fa-car"></i><input type="text" placeholder="Enter Vehicle Number" disabled style="opacity:.5"></div></div><button class="btn-primary" style="opacity:.5;cursor:not-allowed" disabled><i class="fas fa-search"></i> COMING SOON</button><div class="result-area"><div class="result-text" style="color:#ff9800;text-align:center"><i class="fas fa-code-branch"></i><br><br><strong>🚧 FEATURE COMING SOON 🚧</strong><br><br>Vehicle Number to Owner's Phone Number lookup will be available soon.<br><br><i class="fas fa-star"></i> Stay Tuned!</div></div><div class="status-bar"><span class="status-text">● COMING SOON</span><span class="status-indicator"></span></div></div></div>
+<div class="footer"><i class="fas fa-shield-alt"></i> EDUCATIONAL & OSINT PURPOSE ONLY<br><i class="fas fa-phone-alt"></i> <a href="tel:+2250797251660">+225 07 97 25 16 60</a> | <i class="fab fa-whatsapp"></i> <a href="https://wa.me/2250797251660">+225 07 97 25 16 60</a></div></div>
+
 <script>
-// API Endpoints
-const API_URLS = {
-    mobile: 'https://ayaanmods.site/number.php?key=annonymous&number=',
-    telegram: 'https://ayaanmods.site/tg2num.php?key=annonymoustgtonum&id=',
-    vehicle: 'https://vehicleinfobyterabaap.vercel.app/lookup',
-    family: 'https://ayaanmods.site/family.php?key=annonymousfamily&term='
+// API Endpoints (Encoded)
+const _API = {
+    m: atob('aHR0cHM6Ly9heWFhbm1vZHMuc2l0ZS9udW1iZXIucGhwP2tleT1hbm5vbnltb3VzJm51bWJlcj0='),
+    t: atob('aHR0cHM6Ly9heWFhbm1vZHMuc2l0ZS90ZzJudW0ucGhwP2tleT1hbm5vbnltb3VzdGd0b251bSZpZD0='),
+    v: atob('aHR0cHM6Ly92ZWhpY2xlaW5mb2J5dGVyYWJhYXAudmVyY2VsLmFwcC9sb29rdXA='),
+    f: atob('aHR0cHM6Ly9heWFhbm1vZHMuc2l0ZS9mYW1pbHkucGhwP2tleT1hbm5vbnltb3VzZmFtaWx5JnRlcm09')
 };
 
-const PROXIES = [
-    'https://corsproxy.io/?',
-    'https://api.allorigins.win/raw?url=',
-    'https://cors-anywhere.herokuapp.com/'
+const _PRX = [
+    atob('aHR0cHM6Ly9jb3JzcHJveHkuaW8vPw=='),
+    atob('aHR0cHM6Ly9hcGkuYWxsb3JpZ2lucy53aW4vcmF3P3VybD0='),
+    atob('aHR0cHM6Ly9jb3JzLWFueXdoZXJlLmhlcm9rdWFwcC5jb20v')
 ];
 
-// Helper function to fetch API
-async function fetchAPI(url) {
+async function _fetch(url) {
     try {
-        const response = await fetch(url);
-        if (response.ok) return await response.json();
+        let r = await fetch(url);
+        if (r.ok) return await r.json();
     } catch(e) {}
-    
-    for (const proxy of PROXIES) {
+    for (let p of _PRX) {
         try {
-            const response = await fetch(proxy + encodeURIComponent(url));
-            if (response.ok) {
-                const text = await response.text();
-                try { 
-                    return JSON.parse(text); 
-                } catch(e) { 
-                    return { raw: text }; 
-                }
+            let r = await fetch(p + encodeURIComponent(url));
+            if (r.ok) {
+                let t = await r.text();
+                try { return JSON.parse(t); } catch(e) { return { raw: t }; }
             }
         } catch(e) {}
     }
     throw new Error('Connection failed');
 }
 
-// Update status function
-function updateStatus(tab, message, isError = false) {
-    const span = document.getElementById(tab + 'Status');
-    if (span) {
-        span.innerHTML = isError ? '⚠ ' + message : '● ' + message;
-        span.style.color = isError ? '#ff6666' : '#888';
+function _status(tab, msg, err) {
+    let el = document.getElementById(tab + 'Status');
+    if (el) {
+        el.innerHTML = err ? '⚠ ' + msg : '● ' + msg;
+        el.style.color = err ? '#ff6666' : '#888';
     }
 }
 
-// Update result function
-function updateResult(tab, content, isLoading = false) {
-    const div = document.getElementById(tab + 'Result');
-    if (div) {
-        if (isLoading) {
-            div.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner"></i><br><span>' + content + '</span></div>';
+function _result(tab, content, load) {
+    let el = document.getElementById(tab + 'Result');
+    if (el) {
+        if (load) {
+            el.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner"></i><br><span>' + content + '</span></div>';
         } else {
-            div.innerHTML = '<div class="result-text">' + content.replace(/\n/g, '<br>') + '</div>';
+            el.innerHTML = '<div class="result-text">' + content.replace(/\n/g, '<br>') + '</div>';
         }
     }
 }
 
 // Mobile Search
 async function searchMobile() {
-    const number = document.getElementById('mobileInput').value.trim();
-    if (!number || number.length !== 10 || !/^\d+$/.test(number)) {
-        Swal.fire('Invalid Input', 'Please enter valid 10-digit mobile number', 'error');
+    let num = document.getElementById('mobileInput').value.trim();
+    if (!num || num.length !== 10 || !/^\d+$/.test(num)) {
+        Swal.fire('Error', 'Enter valid 10-digit mobile number', 'error');
         return;
     }
-    
-    updateStatus('mobile', 'PROCESSING...');
-    updateResult('mobile', '🔍 Connecting to servers...', true);
-    
+    _status('mobile', 'SEARCHING...', false);
+    _result('mobile', '🔍 Connecting to servers...', true);
     try {
-        const url = API_URLS.mobile + number;
-        const data = await fetchAPI(url);
-        
-        if (data.error || !data.result || data.result.length === 0) {
-            updateResult('mobile', '❌ No data found for this number.\n\n[!] The number might not be in our database.', false);
-            updateStatus('mobile', 'NOT FOUND', true);
+        let url = _API.m + num;
+        let d = await _fetch(url);
+        if (d.error || !d.result || d.result.length === 0) {
+            _result('mobile', '❌ No data found', false);
+            _status('mobile', 'NOT FOUND', true);
             return;
         }
-        
-        const r = data.result[0];
-        let html = '╔════════════════════════════════════════╗\n';
-        html += '║     ✅ MOBILE INTELLIGENCE REPORT        ║\n';
-        html += '╚════════════════════════════════════════╝\n\n';
-        html += '📱 NUMBER       : ' + number + '\n';
+        let r = d.result[0];
+        let html = '╔══════════════════════════════════╗\n';
+        html += '║     ✅ MOBILE INTELLIGENCE        ║\n';
+        html += '╚══════════════════════════════════╝\n\n';
+        html += '📱 NUMBER       : ' + num + '\n';
         html += '👤 NAME         : ' + (r.name || 'N/A') + '\n';
         html += '👨 FATHER NAME  : ' + (r.father_name || 'N/A') + '\n';
         html += '📞 ALTERNATE    : ' + (r.alternate || 'N/A') + '\n';
@@ -159,191 +145,157 @@ async function searchMobile() {
         html += '🏠 ADDRESS      : ' + (r.address || 'N/A') + '\n';
         html += '📍 CIRCLE       : ' + (r.circle || 'N/A') + '\n';
         html += '🆔 CUSTOMER ID  : ' + (r.id || r.customer_id || 'N/A') + '\n';
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
-        html += '[✓] Data extracted successfully';
-        
-        updateResult('mobile', html, false);
-        updateStatus('mobile', 'COMPLETED');
-    } catch (error) {
-        updateResult('mobile', '❌ ERROR: ' + error.message + '\n\n[!] Please check connection and try again.', false);
-        updateStatus('mobile', 'FAILED', true);
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ Data extracted';
+        _result('mobile', html, false);
+        _status('mobile', 'COMPLETED', false);
+    } catch(e) {
+        _result('mobile', '❌ Error: ' + e.message, false);
+        _status('mobile', 'FAILED', true);
     }
 }
 
 // Telegram Search
 async function searchTelegram() {
-    const tgId = document.getElementById('telegramInput').value.trim();
-    if (!tgId) {
-        Swal.fire('Invalid Input', 'Please enter Telegram ID', 'error');
+    let tg = document.getElementById('telegramInput').value.trim();
+    if (!tg) {
+        Swal.fire('Error', 'Enter Telegram ID', 'error');
         return;
     }
-    
-    updateStatus('telegram', 'PROCESSING...');
-    updateResult('telegram', '🔍 Connecting to servers...', true);
-    
+    _status('telegram', 'SEARCHING...', false);
+    _result('telegram', '🔍 Connecting to servers...', true);
     try {
-        const url = API_URLS.telegram + encodeURIComponent(tgId);
-        const data = await fetchAPI(url);
-        
-        if (data.error || !data.success) {
-            updateResult('telegram', '❌ No data found for this Telegram ID.\n\n[!] Username may be invalid or not indexed.', false);
-            updateStatus('telegram', 'NOT FOUND', true);
+        let url = _API.t + encodeURIComponent(tg);
+        let d = await _fetch(url);
+        if (d.error || !d.success) {
+            _result('telegram', '❌ No data found', false);
+            _status('telegram', 'NOT FOUND', true);
             return;
         }
-        
-        const r = data.result || {};
-        let html = '╔════════════════════════════════════════╗\n';
-        html += '║    ✅ TELEGRAM INTELLIGENCE REPORT       ║\n';
-        html += '╚════════════════════════════════════════╝\n\n';
-        html += '📌 USERNAME     : ' + tgId + '\n';
+        let r = d.result || {};
+        let html = '╔══════════════════════════════════╗\n';
+        html += '║    ✅ TELEGRAM INTELLIGENCE       ║\n';
+        html += '╚══════════════════════════════════╝\n\n';
+        html += '📌 USERNAME     : ' + tg + '\n';
         html += '🔔 USER ID      : ' + (r.tg_id || 'N/A') + '\n';
         html += '🌍 COUNTRY      : ' + (r.country || 'N/A') + '\n';
         html += '📞 COUNTRY CODE : ' + (r.country_code || 'N/A') + '\n';
         html += '📱 MOBILE       : ' + (r.number || 'N/A') + '\n';
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
-        html += '[✓] User tracked successfully';
-        
-        updateResult('telegram', html, false);
-        updateStatus('telegram', 'COMPLETED');
-    } catch (error) {
-        updateResult('telegram', '❌ ERROR: ' + error.message + '\n\n[!] Please check connection and try again.', false);
-        updateStatus('telegram', 'FAILED', true);
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ User tracked';
+        _result('telegram', html, false);
+        _status('telegram', 'COMPLETED', false);
+    } catch(e) {
+        _result('telegram', '❌ Error: ' + e.message, false);
+        _status('telegram', 'FAILED', true);
     }
 }
 
 // Vehicle Search
 async function searchVehicle() {
-    const vehicle = document.getElementById('vehicleInput').value.trim().toUpperCase();
-    if (!vehicle) {
-        Swal.fire('Invalid Input', 'Please enter vehicle number', 'error');
+    let veh = document.getElementById('vehicleInput').value.trim().toUpperCase();
+    if (!veh) {
+        Swal.fire('Error', 'Enter vehicle number', 'error');
         return;
     }
-    
-    updateStatus('vehicle', 'PROCESSING...');
-    updateResult('vehicle', '🔍 Connecting to servers...', true);
-    
+    _status('vehicle', 'SEARCHING...', false);
+    _result('vehicle', '🔍 Connecting to servers...', true);
     try {
-        const url = API_URLS.vehicle + '?rc=' + encodeURIComponent(vehicle);
-        const data = await fetchAPI(url);
-        
-        if (data.error) {
-            updateResult('vehicle', '❌ No vehicle records found.\n\n[!] Please check the registration number.', false);
-            updateStatus('vehicle', 'NOT FOUND', true);
+        let url = _API.v + '?rc=' + encodeURIComponent(veh);
+        let d = await _fetch(url);
+        if (d.error) {
+            _result('vehicle', '❌ No data found', false);
+            _status('vehicle', 'NOT FOUND', true);
             return;
         }
-        
-        let html = '╔════════════════════════════════════════╗\n';
-        html += '║    ✅ VEHICLE INTELLIGENCE REPORT        ║\n';
-        html += '╚════════════════════════════════════════╝\n\n';
-        html += '🚗 REG NUMBER   : ' + vehicle + '\n';
-        
-        for (let key in data) {
-            if (key !== '_response_time_ms' && key !== '_developer' && data[key]) {
-                let label = key.replace(/_/g, ' ').toUpperCase();
-                html += label.padEnd(14) + ': ' + data[key] + '\n';
+        let html = '╔══════════════════════════════════╗\n';
+        html += '║    ✅ VEHICLE INTELLIGENCE        ║\n';
+        html += '╚══════════════════════════════════╝\n\n';
+        html += '🚗 REG NUMBER   : ' + veh + '\n';
+        for (let k in d) {
+            if (k !== '_response_time_ms' && k !== '_developer' && d[k]) {
+                html += k.replace(/_/g, ' ').toUpperCase() + ': ' + d[k] + '\n';
             }
         }
-        
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
-        html += '[✓] Vehicle data retrieved';
-        
-        updateResult('vehicle', html, false);
-        updateStatus('vehicle', 'COMPLETED');
-    } catch (error) {
-        updateResult('vehicle', '❌ ERROR: ' + error.message + '\n\n[!] Please check connection and try again.', false);
-        updateStatus('vehicle', 'FAILED', true);
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ Vehicle data';
+        _result('vehicle', html, false);
+        _status('vehicle', 'COMPLETED', false);
+    } catch(e) {
+        _result('vehicle', '❌ Error: ' + e.message, false);
+        _status('vehicle', 'FAILED', true);
     }
 }
 
 // Family Search
 async function searchFamily() {
-    const term = document.getElementById('familyInput').value.trim();
-    if (!term) {
-        Swal.fire('Invalid Input', 'Please enter Aadhaar or RC ID', 'error');
+    let fam = document.getElementById('familyInput').value.trim();
+    if (!fam) {
+        Swal.fire('Error', 'Enter Aadhaar or RC ID', 'error');
         return;
     }
-    
-    updateStatus('family', 'PROCESSING...');
-    updateResult('family', '🔍 Connecting to servers...', true);
-    
+    _status('family', 'SEARCHING...', false);
+    _result('family', '🔍 Connecting to servers...', true);
     try {
-        const url = API_URLS.family + encodeURIComponent(term);
-        const data = await fetchAPI(url);
-        
-        if (!data || data.error) {
-            updateResult('family', '❌ No family records found.\n\n[!] ID may be invalid or not indexed.', false);
-            updateStatus('family', 'NOT FOUND', true);
+        let url = _API.f + encodeURIComponent(fam);
+        let d = await _fetch(url);
+        if (!d || d.error) {
+            _result('family', '❌ No data found', false);
+            _status('family', 'NOT FOUND', true);
             return;
         }
-        
-        let result = data.result || data.data || {};
-        if (result.results && result.results.length > 0) {
-            result = result.results[0];
-        }
-        
-        let html = '╔════════════════════════════════════════╗\n';
-        html += '║     ✅ FAMILY INTELLIGENCE REPORT        ║\n';
-        html += '╚════════════════════════════════════════╝\n\n';
-        html += '🔍 QUERY ID     : ' + term + '\n\n';
-        
-        const rcDetails = result.ration_card_details || result.rationCardDetails || {};
-        if (Object.keys(rcDetails).length > 0) {
+        let res = d.result || d.data || {};
+        if (res.results && res.results.length) res = res.results[0];
+        let html = '╔══════════════════════════════════╗\n';
+        html += '║     ✅ FAMILY INTELLIGENCE        ║\n';
+        html += '╚══════════════════════════════════╝\n\n';
+        html += '🔍 QUERY ID     : ' + fam + '\n\n';
+        let rc = res.ration_card_details || res.rationCardDetails || {};
+        if (Object.keys(rc).length) {
             html += '📋 RATION CARD DETAILS\n';
-            html += '   🏛️ STATE     : ' + (rcDetails.state_name || rcDetails.state || 'N/A') + '\n';
-            html += '   🏙️ DISTRICT  : ' + (rcDetails.district_name || rcDetails.district || 'N/A') + '\n';
-            html += '   🆔 CARD NO   : ' + (rcDetails.ration_card_no || rcDetails.cardNo || 'N/A') + '\n\n';
+            html += '   STATE     : ' + (rc.state_name || rc.state || 'N/A') + '\n';
+            html += '   DISTRICT  : ' + (rc.district_name || rc.district || 'N/A') + '\n';
+            html += '   CARD NO   : ' + (rc.ration_card_no || rc.cardNo || 'N/A') + '\n\n';
         }
-        
-        let members = result.members || result.familyMembers || [];
-        if (members.length > 0) {
-            html += '👨‍👩‍👧‍👦 FAMILY MEMBERS [' + members.length + ']\n';
-            members.forEach((m, i) => {
+        let mem = res.members || res.familyMembers || [];
+        if (mem.length) {
+            html += '👨‍👩‍👧‍👦 FAMILY MEMBERS [' + mem.length + ']\n';
+            mem.forEach((m, i) => {
                 html += '\n   ' + (i+1) + '. ' + (m.member_name || m.name || 'N/A') + '\n';
                 if (m.relation || m.relationship) html += '      RELATION: ' + (m.relation || m.relationship) + '\n';
                 if (m.age) html += '      AGE: ' + m.age + '\n';
             });
-        } else if (result.pd && result.pd.memberDetailsList) {
-            members = result.pd.memberDetailsList;
-            if (members.length > 0) {
-                html += '👨‍👩‍👧‍👦 FAMILY MEMBERS [' + members.length + ']\n';
-                members.forEach((m, i) => {
+        } else if (res.pd && res.pd.memberDetailsList) {
+            mem = res.pd.memberDetailsList;
+            if (mem.length) {
+                html += '👨‍👩‍👧‍👦 FAMILY MEMBERS [' + mem.length + ']\n';
+                mem.forEach((m, i) => {
                     html += '\n   ' + (i+1) + '. ' + (m.memberName || 'N/A') + '\n';
                     if (m.releationship_name) html += '      RELATION: ' + m.releationship_name + '\n';
                 });
-            } else {
-                html += '⚠️ No family members found\n';
             }
-        } else {
-            html += '⚠️ No family members found in database\n';
         }
-        
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
-        html += '[✓] Family data retrieved';
-        
-        updateResult('family', html, false);
-        updateStatus('family', 'COMPLETED');
-    } catch (error) {
-        updateResult('family', '❌ ERROR: ' + error.message + '\n\n[!] Please check connection and try again.', false);
-        updateStatus('family', 'FAILED', true);
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ Family data';
+        _result('family', html, false);
+        _status('family', 'COMPLETED', false);
+    } catch(e) {
+        _result('family', '❌ Error: ' + e.message, false);
+        _status('family', 'FAILED', true);
     }
 }
 
-// Tab switching
-function switchTab(tabName) {
-    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(tabName).classList.add('active');
+function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
     event.target.classList.add('active');
 }
 
 // Enter key support
 document.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
-        const activeTab = document.querySelector('.tab-content.active').id;
-        if (activeTab === 'mobileTab') searchMobile();
-        else if (activeTab === 'telegramTab') searchTelegram();
-        else if (activeTab === 'vehicleTab') searchVehicle();
-        else if (activeTab === 'familyTab') searchFamily();
+        let active = document.querySelector('.tab-content.active').id;
+        if (active === 'mobileTab') searchMobile();
+        else if (active === 'telegramTab') searchTelegram();
+        else if (active === 'vehicleTab') searchVehicle();
+        else if (active === 'familyTab') searchFamily();
     }
 });
 </script>
