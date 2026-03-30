@@ -37,7 +37,7 @@
         input{width:100%;padding:14px 15px 14px 45px;background:rgba(0,0,0,.5);border:1px solid rgba(0,255,0,.3);border-radius:12px;color:#fff}
         input:focus{outline:none;border-color:#0f0}
         .btn-primary{width:100%;padding:14px;background:linear-gradient(135deg,#0f0,#0c6);border:none;border-radius:12px;color:#0a0e27;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:15px}
-        .result-area{background:rgba(0,0,0,.6);border-radius:12px;padding:15px;max-height:380px;overflow-y:auto;border:1px solid rgba(0,255,0,.2)}
+        .result-area{background:rgba(0,0,0,.6);border-radius:12px;padding:15px;max-height:450px;overflow-y:auto;border:1px solid rgba(0,255,0,.2)}
         .result-text{font-family:'Courier New',monospace;font-size:12px;line-height:1.6;color:#0f0;white-space:pre-wrap}
         .status-bar{display:flex;align-items:center;justify-content:space-between;margin-top:15px;padding:10px;background:rgba(0,0,0,.4);border-radius:10px}
         .status-text{font-size:10px;color:#888}
@@ -49,6 +49,8 @@
         .footer{text-align:center;margin-top:20px;padding:15px;background:rgba(0,0,0,.4);border-radius:15px;font-size:9px;color:#666}
         .footer a{color:#0f0;text-decoration:none}
         .coming-soon{background:linear-gradient(135deg,#ff9800,#ff5722);color:#fff;font-size:9px;padding:2px 8px;border-radius:20px;margin-left:8px;display:inline-block}
+        .record-divider{border-top:1px dashed #00ff00;margin:15px 0;opacity:0.3}
+        .record-count{color:#ff9800;font-size:11px;margin-bottom:10px}
         @media(max-width:480px){.glow-text{font-size:20px}.tab-btn{font-size:9px;padding:10px 4px}}
     </style>
 </head>
@@ -57,7 +59,7 @@
 <div class="header"><div class="logo"><i class="fas fa-skull"></i></div><h1 class="glow-text">VISHALHACK OSINT PRO</h1><div class="subtitle">ELITE INTELLIGENCE SUITE</div><div class="badge"><i class="fas fa-shield-alt"></i> OSINT | SECURE | FAST</div></div>
 <div class="stats-row"><div class="stat-card"><i class="fas fa-database"></i><div class="stat-value">4</div><div class="stat-label">ACTIVE APIS</div></div><div class="stat-card"><i class="fas fa-bolt"></i><div class="stat-value">&lt;1s</div><div class="stat-label">RESPONSE</div></div><div class="stat-card"><i class="fas fa-globe"></i><div class="stat-value">PRO</div><div class="stat-label">ACCESS</div></div></div>
 <div class="tabs"><button class="tab-btn active" onclick="switchTab('mobileTab')"><i class="fas fa-mobile-alt"></i> MOBILE</button><button class="tab-btn" onclick="switchTab('telegramTab')"><i class="fab fa-telegram"></i> TELEGRAM</button><button class="tab-btn" onclick="switchTab('vehicleTab')"><i class="fas fa-car"></i> VEHICLE</button><button class="tab-btn" onclick="switchTab('familyTab')"><i class="fas fa-users"></i> FAMILY</button><button class="tab-btn" onclick="switchTab('instagramTab')"><i class="fab fa-instagram"></i> INSTA TO NUM</button><button class="tab-btn" onclick="switchTab('v2nTab')"><i class="fas fa-exchange-alt"></i> V2N</button></div>
-<div id="mobileTab" class="tab-content active"><div class="card"><div class="card-title"><i class="fas fa-phone-alt"></i> MOBILE NUMBER INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fas fa-mobile-alt"></i><input type="tel" id="mobileInput" placeholder="Enter 10-digit mobile number" maxlength="10"></div></div><button class="btn-primary" onclick="searchMobile()"><i class="fas fa-search"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="mobileResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for extraction...</div></div><div class="status-bar"><span class="status-text" id="mobileStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
+<div id="mobileTab" class="tab-content active"><div class="card"><div class="card-title"><i class="fas fa-phone-alt"></i> MOBILE NUMBER INTELLIGENCE <span style="font-size:10px; background:#ff9800; padding:2px 8px; border-radius:20px;">MULTIPLE RESULTS</span></div><div class="input-group"><div class="input-wrapper"><i class="fas fa-mobile-alt"></i><input type="tel" id="mobileInput" placeholder="Enter 10-digit mobile number" maxlength="10"></div></div><button class="btn-primary" onclick="searchMobile()"><i class="fas fa-search"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="mobileResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for extraction...</div></div><div class="status-bar"><span class="status-text" id="mobileStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
 <div id="telegramTab" class="tab-content"><div class="card"><div class="card-title"><i class="fab fa-telegram"></i> TELEGRAM ID INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fab fa-telegram"></i><input type="text" id="telegramInput" placeholder="Enter Telegram ID or Username"></div></div><button class="btn-primary" onclick="searchTelegram()"><i class="fas fa-crosshairs"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="telegramResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for tracking...</div></div><div class="status-bar"><span class="status-text" id="telegramStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
 <div id="vehicleTab" class="tab-content"><div class="card"><div class="card-title"><i class="fas fa-car"></i> VEHICLE REGISTRATION INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fas fa-car"></i><input type="text" id="vehicleInput" placeholder="e.g., MH01AB1234" style="text-transform:uppercase"></div></div><button class="btn-primary" onclick="searchVehicle()"><i class="fas fa-search"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="vehicleResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for RTO lookup...</div></div><div class="status-bar"><span class="status-text" id="vehicleStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
 <div id="familyTab" class="tab-content"><div class="card"><div class="card-title"><i class="fas fa-home"></i> FAMILY & RATION CARD INTELLIGENCE</div><div class="input-group"><div class="input-wrapper"><i class="fas fa-id-card"></i><input type="text" id="familyInput" placeholder="Enter Aadhaar or Ration Card ID"></div></div><button class="btn-primary" onclick="searchFamily()"><i class="fas fa-users"></i> SEARCH NOW</button><div class="result-area"><div class="result-text" id="familyResult"><i class="fas fa-terminal"></i> [SYSTEM] Ready for family lookup...</div></div><div class="status-bar"><span class="status-text" id="familyStatus">● STANDBY</span><span class="status-indicator"></span></div></div></div>
@@ -116,7 +118,7 @@ function _result(tab, content, load) {
     }
 }
 
-// Mobile Search
+// Mobile Search - Multiple Results Support
 async function searchMobile() {
     let num = document.getElementById('mobileInput').value.trim();
     if (!num || num.length !== 10 || !/^\d+$/.test(num)) {
@@ -129,25 +131,41 @@ async function searchMobile() {
         let url = _API.m + num;
         let d = await _fetch(url);
         if (d.error || !d.result || d.result.length === 0) {
-            _result('mobile', '❌ No data found', false);
+            _result('mobile', '❌ No data found for this number.', false);
             _status('mobile', 'NOT FOUND', true);
             return;
         }
-        let r = d.result[0];
-        let html = '╔══════════════════════════════════╗\n';
-        html += '║     ✅ MOBILE INTELLIGENCE        ║\n';
-        html += '╚══════════════════════════════════╝\n\n';
-        html += '📱 NUMBER       : ' + num + '\n';
-        html += '👤 NAME         : ' + (r.name || 'N/A') + '\n';
-        html += '👨 FATHER NAME  : ' + (r.father_name || 'N/A') + '\n';
-        html += '📞 ALTERNATE    : ' + (r.alternate || 'N/A') + '\n';
-        html += '📧 EMAIL        : ' + (r.email || 'N/A') + '\n';
-        html += '🏠 ADDRESS      : ' + (r.address || 'N/A') + '\n';
-        html += '📍 CIRCLE       : ' + (r.circle || 'N/A') + '\n';
-        html += '🆔 CUSTOMER ID  : ' + (r.id || r.customer_id || 'N/A') + '\n';
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ Data extracted';
+        
+        let records = d.result;
+        let total = records.length;
+        
+        let html = '╔════════════════════════════════════════╗\n';
+        html += '║     ✅ MOBILE INTELLIGENCE REPORT        ║\n';
+        html += '╚════════════════════════════════════════╝\n\n';
+        html += '📱 SEARCHED NUMBER : ' + num + '\n';
+        html += '📊 TOTAL RECORDS   : ' + total + '\n';
+        html += '━'.repeat(40) + '\n\n';
+        
+        // Show all records
+        for (let i = 0; i < records.length; i++) {
+            let r = records[i];
+            html += '┌─ RECORD #' + (i+1) + ' ' + '─'.repeat(30) + '\n';
+            html += '│ 👤 NAME         : ' + (r.name || 'N/A') + '\n';
+            html += '│ 👨 FATHER NAME  : ' + (r.father_name || 'N/A') + '\n';
+            html += '│ 📞 ALTERNATE    : ' + (r.alternate || 'N/A') + '\n';
+            html += '│ 📧 EMAIL        : ' + (r.email || 'N/A') + '\n';
+            html += '│ 🏠 ADDRESS      : ' + (r.address || 'N/A') + '\n';
+            html += '│ 📍 CIRCLE       : ' + (r.circle || 'N/A') + '\n';
+            html += '│ 🆔 CUSTOMER ID  : ' + (r.id || r.customer_id || 'N/A') + '\n';
+            html += '└' + '─'.repeat(40) + '\n';
+            if (i < records.length - 1) html += '\n' + '─'.repeat(40) + '\n\n';
+        }
+        
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+        html += '✓ ' + total + ' record(s) extracted successfully';
+        
         _result('mobile', html, false);
-        _status('mobile', 'COMPLETED', false);
+        _status('mobile', total + ' RECORDS FOUND', false);
     } catch(e) {
         _result('mobile', '❌ Error: ' + e.message, false);
         _status('mobile', 'FAILED', true);
@@ -167,20 +185,21 @@ async function searchTelegram() {
         let url = _API.t + encodeURIComponent(tg);
         let d = await _fetch(url);
         if (d.error || !d.success) {
-            _result('telegram', '❌ No data found', false);
+            _result('telegram', '❌ No data found for this Telegram ID.', false);
             _status('telegram', 'NOT FOUND', true);
             return;
         }
         let r = d.result || {};
-        let html = '╔══════════════════════════════════╗\n';
-        html += '║    ✅ TELEGRAM INTELLIGENCE       ║\n';
-        html += '╚══════════════════════════════════╝\n\n';
+        let html = '╔════════════════════════════════════════╗\n';
+        html += '║    ✅ TELEGRAM INTELLIGENCE REPORT       ║\n';
+        html += '╚════════════════════════════════════════╝\n\n';
         html += '📌 USERNAME     : ' + tg + '\n';
         html += '🔔 USER ID      : ' + (r.tg_id || 'N/A') + '\n';
         html += '🌍 COUNTRY      : ' + (r.country || 'N/A') + '\n';
         html += '📞 COUNTRY CODE : ' + (r.country_code || 'N/A') + '\n';
         html += '📱 MOBILE       : ' + (r.number || 'N/A') + '\n';
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ User tracked';
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+        html += '✓ User tracked successfully';
         _result('telegram', html, false);
         _status('telegram', 'COMPLETED', false);
     } catch(e) {
@@ -202,20 +221,22 @@ async function searchVehicle() {
         let url = _API.v + '?rc=' + encodeURIComponent(veh);
         let d = await _fetch(url);
         if (d.error) {
-            _result('vehicle', '❌ No data found', false);
+            _result('vehicle', '❌ No vehicle records found.', false);
             _status('vehicle', 'NOT FOUND', true);
             return;
         }
-        let html = '╔══════════════════════════════════╗\n';
-        html += '║    ✅ VEHICLE INTELLIGENCE        ║\n';
-        html += '╚══════════════════════════════════╝\n\n';
+        let html = '╔════════════════════════════════════════╗\n';
+        html += '║    ✅ VEHICLE INTELLIGENCE REPORT        ║\n';
+        html += '╚════════════════════════════════════════╝\n\n';
         html += '🚗 REG NUMBER   : ' + veh + '\n';
         for (let k in d) {
             if (k !== '_response_time_ms' && k !== '_developer' && d[k]) {
-                html += k.replace(/_/g, ' ').toUpperCase() + ': ' + d[k] + '\n';
+                let label = k.replace(/_/g, ' ').toUpperCase();
+                html += label.padEnd(14) + ': ' + d[k] + '\n';
             }
         }
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ Vehicle data';
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+        html += '✓ Vehicle data retrieved';
         _result('vehicle', html, false);
         _status('vehicle', 'COMPLETED', false);
     } catch(e) {
@@ -237,22 +258,22 @@ async function searchFamily() {
         let url = _API.f + encodeURIComponent(fam);
         let d = await _fetch(url);
         if (!d || d.error) {
-            _result('family', '❌ No data found', false);
+            _result('family', '❌ No family records found.', false);
             _status('family', 'NOT FOUND', true);
             return;
         }
         let res = d.result || d.data || {};
         if (res.results && res.results.length) res = res.results[0];
-        let html = '╔══════════════════════════════════╗\n';
-        html += '║     ✅ FAMILY INTELLIGENCE        ║\n';
-        html += '╚══════════════════════════════════╝\n\n';
+        let html = '╔════════════════════════════════════════╗\n';
+        html += '║     ✅ FAMILY INTELLIGENCE REPORT        ║\n';
+        html += '╚════════════════════════════════════════╝\n\n';
         html += '🔍 QUERY ID     : ' + fam + '\n\n';
         let rc = res.ration_card_details || res.rationCardDetails || {};
         if (Object.keys(rc).length) {
             html += '📋 RATION CARD DETAILS\n';
-            html += '   STATE     : ' + (rc.state_name || rc.state || 'N/A') + '\n';
-            html += '   DISTRICT  : ' + (rc.district_name || rc.district || 'N/A') + '\n';
-            html += '   CARD NO   : ' + (rc.ration_card_no || rc.cardNo || 'N/A') + '\n\n';
+            html += '   🏛️ STATE     : ' + (rc.state_name || rc.state || 'N/A') + '\n';
+            html += '   🏙️ DISTRICT  : ' + (rc.district_name || rc.district || 'N/A') + '\n';
+            html += '   🆔 CARD NO   : ' + (rc.ration_card_no || rc.cardNo || 'N/A') + '\n\n';
         }
         let mem = res.members || res.familyMembers || [];
         if (mem.length) {
@@ -270,9 +291,14 @@ async function searchFamily() {
                     html += '\n   ' + (i+1) + '. ' + (m.memberName || 'N/A') + '\n';
                     if (m.releationship_name) html += '      RELATION: ' + m.releationship_name + '\n';
                 });
+            } else {
+                html += '⚠️ No family members found\n';
             }
+        } else {
+            html += '⚠️ No family members found in database\n';
         }
-        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✓ Family data';
+        html += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+        html += '✓ Family data retrieved';
         _result('family', html, false);
         _status('family', 'COMPLETED', false);
     } catch(e) {
